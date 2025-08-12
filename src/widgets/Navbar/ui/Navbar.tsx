@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import {ThemeSwitcher} from 'shared/ui/ThemeSwitcher';
 import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './Navbar.module.scss';
 
@@ -10,6 +11,7 @@ interface NavbarProps  {
 
 export const Navbar: FC<NavbarProps> = ({className}) => {
     return <div className={classNames(cls.navbar, {}, [className])}> 
+    <ThemeSwitcher />
       <div className={cls.links}>
         <AppLink to='/' className={cls.mainLink}>Главная</AppLink>
         <AppLink to='/about' className={cls.mainLink}>О сайте</AppLink>
