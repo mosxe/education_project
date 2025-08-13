@@ -13,4 +13,10 @@
 .switchers {
   position: absolute;
   bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.lang {
+  margin-left: 12px;
 }
