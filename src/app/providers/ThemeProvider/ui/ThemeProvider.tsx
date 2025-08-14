@@ -9,11 +9,11 @@ const ThemeProvider: FunctionComponent = ({children}) => {
   const defaultProps = useMemo(() => ({
     theme: theme,
     setTheme: setTheme
-  }), [theme])
+  }), [theme]);
 
   return <ThemeContext.Provider value={defaultProps}>
-      {children}
-    </ThemeContext.Provider>
+    {children}
+  </ThemeContext.Provider>;
 };
 
 export default ThemeProvider;

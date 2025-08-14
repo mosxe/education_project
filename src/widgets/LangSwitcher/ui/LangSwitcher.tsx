@@ -18,8 +18,8 @@ export const LangSwitcher:FC<LangSwitcherProps> = (props) => {
     <Button theme={ThemeButton.CLEAR}
       onClick={toogle}
       className={classNames(cls.LangSwitcher, {}, [className])}
-      >
-        {t('Язык')}
+    >
+      {t('Язык')}
     </Button>
   );
-}
+};

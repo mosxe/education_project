@@ -3,7 +3,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "esnext",
-    "target": "es5",
+    "target": "es6",
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
@@ -14,9 +14,13 @@
       "*": ["./src/*"]
     }
   },
+  "include": ["src"],
   "ts-node": {
     "compilerOptions": {
       "module": "commonjs"
     }
+  },
+  "rules": {
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"]
   }
 }

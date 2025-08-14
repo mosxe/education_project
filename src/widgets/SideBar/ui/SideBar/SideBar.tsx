@@ -22,5 +22,5 @@ export const SideBar:FC<SideBarProps> = (props) => {
         <LangSwitcher className={cls.lang}/>
       </div>
     </div>
- );
-}
+  );
+};

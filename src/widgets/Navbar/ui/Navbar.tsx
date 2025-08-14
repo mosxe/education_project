@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import {classNames} from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps  {
@@ -9,12 +10,14 @@ interface NavbarProps  {
 };
 
 export const Navbar: FC<NavbarProps> = ({className}) => {
-    return <div className={classNames(cls.navbar, {}, [className])}> 
-      <div className={cls.links}>
-        <AppLink to='/' className={cls.mainLink}>Главная</AppLink>
-        <AppLink to='/about' className={cls.mainLink}>О сайте</AppLink>
-      </div>
+  const {t} = useTranslation();
+
+  return <div className={classNames(cls.navbar, {}, [className])}>
+    <div className={cls.links}>
+      <AppLink to='/' className={cls.mainLink}>{t('Главная меню')}</AppLink>
+      <AppLink to='/about' className={cls.mainLink}>{t('О сайте меню')}</AppLink>
     </div>
+  </div>;
 };
 
 
