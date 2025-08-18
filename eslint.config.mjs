@@ -3,9 +3,11 @@ import reactPlugin from "eslint-plugin-react";
 import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
+import i18next from 'eslint-plugin-i18next';
 
 export default [
   js.configs.recommended,
+  i18next.configs['flat/recommended'],
   {
     files: ["src/**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
@@ -47,7 +49,7 @@ export default [
       "no-trailing-spaces": "error",
       "react/jsx-uses-react": "error",
       "react/jsx-uses-vars": "error",
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
     },
     settings: {
       react: {
