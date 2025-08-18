@@ -10,6 +10,9 @@ export default [
   i18next.configs['flat/recommended'],
   {
     files: ["src/**/*.{js,jsx,ts,tsx}"],
+    env: {
+      "jest": true
+    },
     languageOptions: {
       parser: tsParser,
       parserOptions: {
