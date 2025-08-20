@@ -11,16 +11,27 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["src"],
+  "include": [
+    "./config/jest/setupTests.ts",
+    "src"
+  ],
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs"
+      "module": "commonjs",
+      "types": [
+        "@testing-library/jest-dom"
+      ]
     }
   },
   "rules": {
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"]
+    "@typescript-eslint/consistent-type-definitions": [
+      "error",
+      "interface"
+    ]
   }
 }
