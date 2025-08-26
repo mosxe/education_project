@@ -19,4 +19,4 @@ export const PageError: FC<PageErrorProps> = (props) => {
       <button onClick={reloadPage}>{t('Обновить страницу')}</button>
     </div>
   );
-}
+};

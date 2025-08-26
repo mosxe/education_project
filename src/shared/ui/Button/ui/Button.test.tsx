@@ -4,7 +4,7 @@ import { Button, ThemeButton } from 'shared/ui/Button';
 describe('Button', () => {
   test('render component', () => {
     render(<Button>Test</Button>);
-    expect(screen.getByText('Test')).toBeInTheDocument()
+    expect(screen.getByText('Test')).toBeInTheDocument();
   });
 
   test('component class', () => {

@@ -16,4 +16,4 @@ export const NotFoundPage: FC<NotFoundPageProps> = (props) => {
       {t('Страница не найдена')}
     </div>
   );
-}
+};

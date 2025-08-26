@@ -12,4 +12,4 @@ export const Loader: FC<LoaderProps> = (props) => {
   return (
     <span className={classNames('loader', {}, [className])}></span>
   );
-}
+};

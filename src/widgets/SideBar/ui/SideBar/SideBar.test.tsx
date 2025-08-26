@@ -5,7 +5,7 @@ import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/re
 describe('SideBar', () => {
   test('render component', () => {
     renderWithTranslation(<SideBar />);
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument()
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   test('component has class', () => {
