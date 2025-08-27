@@ -12,13 +12,15 @@
     "baseUrl": ".",
     "paths": {
       "*": [
-        "./src/**/*.ts",
-        "./src/**/*.tsx"
+        "./src/*"
       ]
     }
   },
   "include": [
     "./config/jest/setupTests.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./webpack.config.ts",
     "src"
   ],
   "ts-node": {
