@@ -20,7 +20,7 @@ jobs:
       - name: install modules
         run: npm install --legacy-peer-deps
       - name: install ts-node for webpack config
-        run: npm install ts-node tsconfig-paths --save-dev
+        run: npm install ts-node tsconfig-paths --save-dev --legacy-peer-deps
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
