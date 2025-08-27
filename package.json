@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve --env port=3000",
-    "build:prod": "ts-node --transpile-only node_modules/webpack/bin/webpack.js --config webpack.config.ts --env mode=production",
+    "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
