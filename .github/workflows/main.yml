@@ -19,8 +19,10 @@ jobs:
           node-version: ${{ matrix.node-version}} 
       - name: install modules
         run: npm ci --legacy-peer-deps
+      - name: Compile TypeScript (including config)
+        run: npx tsc --esModuleInterop --module commonjs --target es5 webpack.config.ts config/build/**/*.ts
       - name: build production project
-        run: npx ts-node -r tsconfig-paths/register node_modules/webpack/bin/webpack.js --config webpack.config.ts --env mode=production
+        run: webpack --env mode=production
       - name: linting typescript
         run: npm run lint:ts
       - name: linting css
