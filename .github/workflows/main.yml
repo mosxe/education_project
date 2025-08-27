@@ -20,7 +20,7 @@ jobs:
       - name: install modules
         run: npm ci --legacy-peer-deps
       - name: build production project
-        run: npm run build:prod
+        run: npx ts-node -r tsconfig-paths/register node_modules/webpack/bin/webpack.js --config webpack.config.ts --env mode=production
       - name: linting typescript
         run: npm run lint:ts
       - name: linting css
