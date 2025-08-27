@@ -12,9 +12,9 @@ jobs:
         node-version: [ 22.x ]
     
     steps:
-      - uses: actions/checkout@4
+      - uses: actions/checkout@v4.2.0
       - name: Staring Node.js ${{ matrix.node-version}} 
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3.8.2
         with:
           node-version: ${{ matrix.node-version}} 
       - name: install modules
