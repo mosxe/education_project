@@ -19,6 +19,8 @@ jobs:
           node-version: ${{ matrix.node-version}} 
       - name: install modules
         run: npm install --legacy-peer-deps
+      - name: install ts-node for webpack config
+        run: npm install ts-node tsconfig-paths --save-dev
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
