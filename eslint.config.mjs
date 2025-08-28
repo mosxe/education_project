@@ -1,6 +1,5 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import storybook from "eslint-plugin-storybook";
-
+import reactHooks from 'eslint-plugin-react-hooks';
 import js from "@eslint/js";
 import reactPlugin from "eslint-plugin-react";
 import globals from "globals";
@@ -8,7 +7,8 @@ import tsParser from "@typescript-eslint/parser";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import i18next from 'eslint-plugin-i18next';
 
-export default [js.configs.recommended, i18next.configs['flat/recommended'], {
+export default [js.configs.recommended, i18next.configs['flat/recommended']
+  , {
   files: ["src/**/*.{js,jsx,ts,tsx}"],
   languageOptions: {
     parser: tsParser,
@@ -29,7 +29,8 @@ export default [js.configs.recommended, i18next.configs['flat/recommended'], {
   },
   plugins: {
     react: reactPlugin,
-    "@typescript-eslint": tsPlugin
+    "@typescript-eslint": tsPlugin,
+    'react-hooks': reactHooks
   },
   rules: {
     ...reactPlugin.configs.recommended.rules,
@@ -51,7 +52,9 @@ export default [js.configs.recommended, i18next.configs['flat/recommended'], {
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/react-in-jsx-scope": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
   },
   settings: {
     react: {
