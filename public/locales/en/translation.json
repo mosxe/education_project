@@ -6,5 +6,7 @@
   "Произошла непредвиденная ошибка": "Something errors",
   "Обновить страницу": "Reload page",
   "Кнопка меню": "Button menu",
-  "Короткий язык": "En"
+  "Короткий язык": "En",
+  "increment": "increment",
+  "decrement": "decrement"
 }
