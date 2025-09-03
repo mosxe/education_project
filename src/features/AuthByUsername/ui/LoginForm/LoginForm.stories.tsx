@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Navbar } from './Navbar';
+import { LoginForm } from './LoginForm';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
 const meta = {
-  title: 'widgets/Navbar',
-  component: Navbar,
-} satisfies Meta<typeof Navbar>;
+  title: 'features/LoginForm',
+  component: LoginForm,
+} satisfies Meta<typeof LoginForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -16,25 +16,25 @@ export const Light: Story = {
   args: {
   },
   decorators: [StoreDecorator({
-    loginForm: { username: '', password: '', isLoading: true }
+    loginForm: { username: '1', password: '1' }
   })
-  ],
+  ]
 };
 
 export const Dark: Story = {
   args: {
   },
   decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
-    loginForm: { username: '', password: '', isLoading: true }
+    loginForm: { username: '1', password: '1' }
   })
   ],
 };
 
-export const Logout: Story = {
+export const Loading: Story = {
   args: {
   },
-  decorators: [StoreDecorator({
-    user: { authData: { id: '1', username: '1' } }
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
+    loginForm: { username: '', password: '', isLoading: true }
   })
   ],
 };

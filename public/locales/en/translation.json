@@ -9,5 +9,10 @@
   "Короткий язык": "En",
   "increment": "increment",
   "decrement": "decrement",
-  "Войти": "Sign in"
+  "Войти": "Sign in",
+  "Вы ввели неверный логин или пароль": "Incorrect login or password",
+  "Выйти": "Logout",
+  "Форма авторизации": "Form authorization",
+  "Логин": "Login",
+  "Пароль": "Password"
 }

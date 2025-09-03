@@ -3,6 +3,11 @@
   color: var(--primary-color);
   padding: 6px 15px;
   border-radius: 8px;
+
+  &:disabled {
+    cursor: default;
+     opacity: 0.4;
+  }
 }
 
 .clear,
