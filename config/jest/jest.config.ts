@@ -38,7 +38,8 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
-    '\\.svg': '<rootDir>/config/jest/jestEmptyComponent.tsx'
+    '\\.svg': '<rootDir>/config/jest/jestEmptyComponent.tsx',
+    "^axios$": "axios/dist/node/axios.cjs"
   },
   globals: {
     __IS_DEV__: true

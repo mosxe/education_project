@@ -24,8 +24,7 @@ export const Light: Story = {
 export const Dark: Story = {
   args: {
   },
-  decorators: [ThemeDecorator(Theme.DARK),
-  StoreDecorator({
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
     loginForm: { username: '1', password: '1' }
   })
   ]
