@@ -6,6 +6,7 @@ import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import i18next from 'eslint-plugin-i18next';
+import { fixupPluginRules } from "@eslint/compat";
 
 export default [js.configs.recommended, i18next.configs['flat/recommended']
   , {
@@ -30,7 +31,7 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
   plugins: {
     react: reactPlugin,
     "@typescript-eslint": tsPlugin,
-    'react-hooks': reactHooks
+    'react-hooks': fixupPluginRules(reactHooks)
   },
   rules: {
     ...reactPlugin.configs.recommended.rules,

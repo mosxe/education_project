@@ -25,11 +25,11 @@ export const Modal: FC<ModalProps> = (props) => {
     return () => setIsMounted(false);
   }, [isOpen]);
 
-  const closeHandler = () => {
+  const closeHandler = useCallback(() => {
     if (onClose) {
       onClose();
     }
-  };
+  }, [onClose]);
 
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -53,7 +53,7 @@ export const Modal: FC<ModalProps> = (props) => {
     return () => {
       window.removeEventListener('keydown', onKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, onKeyDown]);
 
   if (lazy && !isMounted) {
     return null;
