@@ -38,3 +38,12 @@ export const Loading: Story = {
   })
   ],
 };
+
+export const Error: Story = {
+  args: {
+  },
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
+    loginForm: { error: 'Ошибка' }
+  })
+  ],
+};
