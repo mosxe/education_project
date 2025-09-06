@@ -36,6 +36,7 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
   rules: {
     ...reactPlugin.configs.recommended.rules,
     ...tsPlugin.configs.recommended.rules,
+    "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -56,6 +57,7 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
     "react/display-name": "off",
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+
   },
   settings: {
     react: {

@@ -21,7 +21,6 @@ export const Modal: FC<ModalProps> = (props) => {
     if (isOpen) {
       setIsMounted(true);
     }
-
     return () => setIsMounted(false);
   }, [isOpen]);
 
