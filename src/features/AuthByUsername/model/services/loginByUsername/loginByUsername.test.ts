@@ -10,14 +10,6 @@ jest.mock('axios');
 const mockedAxios = jest.mocked(axios);
 
 describe('loginByUsername.test', () => {
-  let dispatch: Dispatch;
-  let getState: () => StateSchema;
-
-  beforeEach(() => {
-    dispatch = jest.fn();
-    getState = jest.fn();
-  });
-
   test('success', async () => {
     const userValue = { username: '123', id: '1' };
     mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
