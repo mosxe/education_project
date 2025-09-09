@@ -14,6 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
+    onSuccess: () => true
   },
   decorators: [StoreDecorator({
     loginForm: { username: '1', password: '1' }
@@ -23,6 +24,7 @@ export const Light: Story = {
 
 export const Dark: Story = {
   args: {
+    onSuccess: () => true
   },
   decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
     loginForm: { username: '1', password: '1' }
@@ -32,6 +34,7 @@ export const Dark: Story = {
 
 export const Loading: Story = {
   args: {
+    onSuccess: () => true
   },
   decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
     loginForm: { username: '', password: '', isLoading: true }
@@ -41,6 +44,7 @@ export const Loading: Story = {
 
 export const Error: Story = {
   args: {
+    onSuccess: () => true
   },
   decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
     loginForm: { error: 'Ошибка' }

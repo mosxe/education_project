@@ -26,6 +26,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Кирилл",
+    "lastname": "Алексеев",
+    "age": 32,
+    "currency": "RUB",
+    "country": "Russian",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://abrakadabra.fun/uploads/posts/2022-02/thumbs/1644380131_16-abrakadabra-fun-p-avatarki-dlya-vatsapa-anime-dlya-parnei-33.jpg"
   }
 }

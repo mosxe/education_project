@@ -1,25 +1,24 @@
-import { FC, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button, ButtonTheme, ButtonSize } from 'shared/ui/Button';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
 import cls from './SideBar.module.scss';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import HomeIcon from 'shared/assets/icons/home.svg';
-import AboutIcon from 'shared/assets/icons/about.svg';
+import { SidebarItemList } from '../../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SideBarProps {
   className?: string;
 }
 
-export const SideBar: FC<SideBarProps> = (props) => {
-  const { t } = useTranslation();
+export const SideBar = memo((props: SideBarProps) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const { className } = props;
-
   const onToogle = () => setCollapsed((prev) => !prev);
+
+  const itemList = useMemo(() => {
+    return SidebarItemList.map((item) => <SidebarItem item={item} key={item.path} collapsed={collapsed} />);
+  }, [collapsed]);
 
   return (
     <div
@@ -36,14 +35,7 @@ export const SideBar: FC<SideBarProps> = (props) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.items}>
-        <AppLink to={RoutePath.main} className={cls.item}>
-          <HomeIcon className={cls.icon} />
-          <span className={cls.link}>{t('Главная меню')}</span>
-        </AppLink>
-        <AppLink to={RoutePath.about} className={cls.item}>
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t('О сайте меню')}</span>
-        </AppLink>
+        {itemList}
       </div>
       <div className={cls.switchers}>
         <ThemeSwitcher />
@@ -51,4 +43,4 @@ export const SideBar: FC<SideBarProps> = (props) => {
       </div>
     </div>
   );
-};
+});
