@@ -1,6 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getLoginUsername } from './getLoginUsername';
-import { DeepPartial } from '@reduxjs/toolkit';
 
 describe('getLoginUsername.test', () => {
   test('should isLoading true', () => {

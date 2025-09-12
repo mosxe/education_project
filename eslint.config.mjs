@@ -25,7 +25,8 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
       ...globals.browser,
       ...globals.node,
       ...globals.jest,
-      __IS_DEV__: "readonly"
+      __IS_DEV__: "readonly",
+      __API__: "readonly"
     }
   },
   plugins: {
@@ -57,6 +58,7 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
     "react/display-name": "off",
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'no-undef': 'off'
 
   },
   settings: {

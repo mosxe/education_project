@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import { Portal } from 'shared/ui/Portal';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import { useTheme } from 'app/providers/ThemeProvider';
 
@@ -34,7 +34,7 @@ export const Modal: FC<ModalProps> = (props) => {
     e.stopPropagation();
   };
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen
   };
 
