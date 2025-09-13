@@ -4,16 +4,13 @@
   border-radius: 8px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.data {
-  margin-top: 30px;
-}
-
-
 .input {
   margin-top: 10px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
 }
