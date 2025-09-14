@@ -14,3 +14,13 @@
   justify-content: center;
   padding: 40px 0;
 }
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.editing {
+  border: 2px solid var(--inverted-primary-color);
+}
