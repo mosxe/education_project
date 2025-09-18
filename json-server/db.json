@@ -26,8 +26,8 @@
     }
   ],
   "profile": {
-    "first": "Кирилл",
-    "lastname": "Алексеев",
+    "first": "",
+    "lastname": "",
     "age": 32,
     "currency": "RUB",
     "country": "Russian",

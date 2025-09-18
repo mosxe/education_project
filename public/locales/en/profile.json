@@ -3,5 +3,11 @@
   "Редактировать": "Edit",
   "Ваше имя": "Your name",
   "Ваша фамилия": "Your surname",
-  "Отменить": "Cancel"
+  "Сохранить": "Save",
+  "Отменить": "Cancel",
+  "Серверная ошибка при сохранении": "Server error on save",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректный регион": "Incorrect country",
+  "Имя и фамилия обязательны": "Firstname and surname requered",
+  "Данные не указаны": "No data"
 }
