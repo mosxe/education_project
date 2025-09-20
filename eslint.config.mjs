@@ -26,7 +26,8 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
       ...globals.node,
       ...globals.jest,
       __IS_DEV__: "readonly",
-      __API__: "readonly"
+      __API__: "readonly",
+      __PROJECT__: "readonly"
     }
   },
   plugins: {

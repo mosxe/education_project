@@ -15,8 +15,8 @@ import { CountrySelect, Country } from 'entities/Country';
 interface ProfileCardProps {
   className?: string;
   data?: Profile;
-  isLoading: boolean;
-  error: string | undefined;
+  isLoading?: boolean;
+  error?: string | undefined;
   readonly?: boolean;
   onChangeFirstname?: (value: string) => void;
   onChangeLastname?: (value: string) => void;
@@ -53,7 +53,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
   };
 
   if (isLoading) {
-    return <div className={classNames(cls.ProfileCard, {}, [className, cls.wrapper])}>
+    return <div className={classNames('', {}, [className, cls.wrapper])}>
       <Loader />
     </div>;
   }
