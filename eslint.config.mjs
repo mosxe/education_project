@@ -49,7 +49,7 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
         "ignoreRestSiblings": true
       }
     ],
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "no-trailing-spaces": "error",
