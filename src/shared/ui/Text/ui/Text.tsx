@@ -8,22 +8,26 @@ export enum TextTheme {
   ERROR = 'error'
 }
 
-export type textAlign = 'left' | 'center' | 'right';
+export type TextAlign = 'left' | 'center' | 'right';
+
+export type TextSize = 'm' | 'l';
 
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
-  align?: textAlign;
+  align?: TextAlign;
+  size?: TextSize;
 }
 
 export const Text = memo((props: TextProps) => {
-  const { className, title, text, theme = TextTheme.PRIMARY, align = 'left' } = props;
+  const { className, title, text, theme = TextTheme.PRIMARY, align = 'left', size = 'm' } = props;
 
   const mods: Mods = {
     [cls[theme]]: true,
-    [cls[align]]: true
+    [cls[align]]: true,
+    [cls[`size_${size}`]]: true
   };
 
   return (
