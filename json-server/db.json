@@ -108,7 +108,16 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "ADMIN",
+      "avatar": "https://abrakadabra.fun/uploads/posts/2022-02/thumbs/1644380131_16-abrakadabra-fun-p-avatarki-dlya-vatsapa-anime-dlya-parnei-33.jpg"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "222",
+      "role": "USER",
+      "avatar": "https://www.shutterstock.com/image-vector/avatar-bald-man-profile-handsome-260nw-2550163951.jpg"
     }
   ],
   "profile": {
