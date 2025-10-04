@@ -102,6 +102,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test",
+      "id": "KpjWOR6"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test2",
+      "id": "v4rwlXe"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test3",
+      "id": "Bl7PP_Q"
     }
   ],
   "users": [
@@ -120,14 +138,28 @@
       "avatar": "https://www.shutterstock.com/image-vector/avatar-bald-man-profile-handsome-260nw-2550163951.jpg"
     }
   ],
-  "profile": {
-    "first": "",
-    "lastname": "",
-    "age": 32,
-    "currency": "RUB",
-    "country": "Russian",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://abrakadabra.fun/uploads/posts/2022-02/thumbs/1644380131_16-abrakadabra-fun-p-avatarki-dlya-vatsapa-anime-dlya-parnei-33.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "first",
+      "lastname": "lastname",
+      "age": 32,
+      "currency": "RUB",
+      "country": "Russian",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://abrakadabra.fun/uploads/posts/2022-02/thumbs/1644380131_16-abrakadabra-fun-p-avatarki-dlya-vatsapa-anime-dlya-parnei-33.jpg"
+    },
+    {
+      "id": "2",
+      "first": "first22",
+      "lastname": "lastname2",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Russian",
+      "city": "Murom",
+      "username": "username",
+      "avatar": "https://www.shutterstock.com/image-vector/avatar-bald-man-profile-handsome-260nw-2550163951.jpg"
+    }
+  ]
 }
