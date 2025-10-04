@@ -36,6 +36,10 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
     onCommentTextChange('');
   }, [onCommentTextChange, onSendComment, text]);
 
+  if (error) {
+    return null;
+  }
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.AddCommentForm, {}, [className])}>

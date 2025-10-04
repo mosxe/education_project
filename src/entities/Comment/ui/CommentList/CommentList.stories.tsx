@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { CommentList } from './CommentList';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import avatar from 'shared/assets/tests/avatar_storybook.jpg';
 
 const meta = {
   title: 'entities/CommentList',
