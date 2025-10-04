@@ -23,20 +23,26 @@ export const CommentList: FC<CommentListProps> = (props) => {
         <CommentCard
           className={cls.comment}
           isLoading={true} />
+        <CommentCard
+          className={cls.comment}
+          isLoading={true} />
       </div>
     );
+  }
+
+  if (!comments) {
+    return <Text text={t('Комментарии отсутствуют')} />;
   }
 
   return (
     <div className={classNames(cls.CommentList, {}, [className])}>
       {
-        comments?.length ? comments.map(comment =>
+        comments.map(comment =>
           <CommentCard
             className={cls.comment}
             key={comment.id}
             comment={comment}
             isLoading={isLoading} />)
-          : <Text text={t('Комментарии отсутствуют')} />
       }
     </div>
   );
