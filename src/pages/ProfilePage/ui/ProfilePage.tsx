@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -81,7 +82,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div>
+      <Page>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map(error => <Text key={error} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />)}
         <ProfileCard
@@ -98,7 +99,7 @@ const ProfilePage = () => {
           onChangeCountry={onChangeCountry}
           readonly={readonly}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
