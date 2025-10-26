@@ -59,7 +59,8 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
     "react/display-name": "off",
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
-    'no-undef': 'off'
+    'no-undef': 'off',
+    "@typescript-eslint/no-explicit-any": "off"
 
   },
   settings: {
