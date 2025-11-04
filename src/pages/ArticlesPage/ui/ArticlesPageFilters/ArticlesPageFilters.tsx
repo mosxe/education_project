@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesPageFilters.module.scss';
 import {
@@ -25,7 +25,6 @@ import { Input } from 'shared/ui/Input';
 import { SortOrder } from 'shared/types';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem } from 'shared/ui/Tabs';
 
 interface ArticlesPageFiltersProps {
   className?: string;
