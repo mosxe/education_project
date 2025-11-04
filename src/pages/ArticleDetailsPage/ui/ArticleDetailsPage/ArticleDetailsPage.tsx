@@ -23,7 +23,7 @@ import { Page } from 'shared/ui/Page';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import { ArticleList } from 'entities/Article';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 interface ArticleDetailsPageProps {
   className?: string;
 }
@@ -65,7 +65,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames('', {}, [className])}>
-        <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>{t('Назад к списку')}</Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text size="l" className={cls.commentTitle} title={t('Рекомендуем')} />
         <ArticleList

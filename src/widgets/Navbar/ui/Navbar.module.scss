@@ -4,6 +4,16 @@
   background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 20px;
+}
+
+.navbarWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.appName {
+  width: var(--sidebar-width);
 }
