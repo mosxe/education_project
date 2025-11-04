@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text';
 import { CommentList } from 'entities/Comment';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'shared/ui/Page';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import { ArticleList } from 'entities/Article';
