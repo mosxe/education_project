@@ -4,6 +4,7 @@ import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { Text } from 'shared/ui/Text';
 
 interface ArticleListProps {
   className?: string;
@@ -23,6 +24,14 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
   const renderArticle = (article: Article) => {
     return <ArticleListItem article={article} view={view} key={article.id} />;
   };
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames('', {}, [className, cls[view]])}>
+        <Text size='l' text="Статьи не найдены" align='center' />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames('', {}, [className, cls[view]])}>

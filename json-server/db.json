@@ -233,11 +233,12 @@
       "title": "Svelte news 4",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://blog.nashtechglobal.com/wp-content/uploads/2023/05/svelte-1024x576.jpg",
-      "views": 1022,
+      "views": 1023,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -309,7 +310,9 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE",
+        "LOGIC"
       ],
       "blocks": [
         {
@@ -377,7 +380,7 @@
       "title": "Svelte news 5",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://blog.nashtechglobal.com/wp-content/uploads/2023/05/svelte-1024x576.jpg",
-      "views": 1022,
+      "views": 3022,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -449,7 +452,7 @@
       "title": "Svelte news 6",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://blog.nashtechglobal.com/wp-content/uploads/2023/05/svelte-1024x576.jpg",
-      "views": 1022,
+      "views": 2022,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -521,7 +524,7 @@
       "title": "Svelte news 7",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://blog.nashtechglobal.com/wp-content/uploads/2023/05/svelte-1024x576.jpg",
-      "views": 1022,
+      "views": 822,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -590,7 +593,7 @@
     },
     {
       "id": "8",
-      "title": "Svelte news 8",
+      "title": "Kotlin",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://blog.nashtechglobal.com/wp-content/uploads/2023/05/svelte-1024x576.jpg",
       "views": 1022,
