@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
@@ -11,6 +11,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 
@@ -19,10 +20,10 @@ const getSkeletons = (view: ArticleView) => {
 };
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
-  const { className, articles, isLoading, view = ArticleView.SMALL } = props;
+  const { className, articles, isLoading, view = ArticleView.SMALL, target = '_self' } = props;
 
   const renderArticle = (article: Article) => {
-    return <ArticleListItem article={article} view={view} key={article.id} />;
+    return <ArticleListItem article={article} view={view} key={article.id} target={target} />;
   };
 
   if (!isLoading && !articles.length) {

@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
@@ -10,23 +10,19 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
   className?: string;
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
-  const { className, article, view } = props;
+  const { className, article, view, target = '_self' } = props;
   const { t } = useTranslation();
-  const navigate = useNavigate();
-
-  const onOpenArticle = useCallback(() => {
-    navigate(RoutePath.article_details + article.id);
-  }, [navigate, article.id]);
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
@@ -52,7 +48,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           <img src={article.img} className={cls.img} alt={article.title} />
           {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
           <div className={cls.footer}>
-            <Button theme={ButtonTheme.OUTLINE} onClick={onOpenArticle}>{t('Читать далее...')}</Button>
+            <AppLink to={RoutePath.article_details + article.id}>
+              <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -61,8 +59,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   }
 
   return (
-    <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-      <Card onClick={onOpenArticle}>
+    <AppLink
+      target={target}
+      to={RoutePath.article_details + article.id}
+      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+    >
+      <Card>
         <div className={cls.imageWrapper}>
           <img src={article.img} className={cls.img} alt={article.title} />
           <Text text={article.createdAt} className={cls.date} />
@@ -73,6 +75,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
         </div>
         <Text text={article.title} className={cls.title} />
       </Card>
-    </div >
+    </AppLink >
   );
 };
