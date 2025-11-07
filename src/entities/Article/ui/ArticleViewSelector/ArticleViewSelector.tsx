@@ -6,6 +6,7 @@ import ListBigIcon from 'shared/assets/icons/list_big.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon';
 import cls from './ArticleViewSelector.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleViewSelectorProps {
   className?: string;
@@ -32,7 +33,7 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = (props) => {
   };
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <HStack gap='4' className={classNames('', {}, [className])}>
       {
         viewTypes.map(viewType => (
           <Button theme={ButtonTheme.CLEAR} key={viewType.view} onClick={() => onClick(viewType.view)}>
@@ -40,6 +41,6 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = (props) => {
           </Button>)
         )
       }
-    </div>
+    </HStack>
   );
 };

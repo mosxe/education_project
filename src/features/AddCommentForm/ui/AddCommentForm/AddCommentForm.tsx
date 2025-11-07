@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions } from '../../model/slices/addCommentForm';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { addCommentFormReducer } from '../../model/slices/addCommentForm';
+import { HStack } from 'shared/ui/Stack';
 
 interface AddCommentFormProps {
   className?: string;
@@ -42,7 +43,7 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack max justify='between' className={classNames(cls.AddCommentForm, {}, [className])}>
         <Input placeholder={t('Введите текст комментария')}
           value={text}
           onChange={onCommentTextChange}
@@ -54,7 +55,7 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
         >
           {t('Отправить')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 };

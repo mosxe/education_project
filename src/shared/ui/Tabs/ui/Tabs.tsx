@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Tabs.module.scss';
 import { Card } from 'shared/ui/Card';
 import { CardTheme } from 'shared/ui/Card/ui/Card';
+import { HStack } from 'shared/ui/Stack';
 
 export interface TabItem {
   value: string;
@@ -23,7 +24,7 @@ export const Tabs: FC<TabsProps> = (props) => {
   }, [onTabClick]);
 
   return (
-    <div className={classNames(cls.Tabs, {}, [className])}>
+    <HStack max gap='16' className={classNames('', {}, [className])}>
       {tabs.map(tab => <Card
         className={cls.tab}
         theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
@@ -32,6 +33,6 @@ export const Tabs: FC<TabsProps> = (props) => {
       >
         {tab.content}
       </Card>)}
-    </div>
+    </HStack>
   );
 };

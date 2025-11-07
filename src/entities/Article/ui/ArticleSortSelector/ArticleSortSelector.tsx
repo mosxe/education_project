@@ -1,11 +1,11 @@
 import { FC, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleSortSelector.module.scss';
 import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { SelectOption } from 'shared/ui/Select/ui/Select';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { SortOrder } from 'shared/types';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -52,9 +52,9 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
   }, [t]);
 
   return (
-    <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+    <HStack max gap='16' className={classNames('', {}, [className])}>
       <Select
-        label={t('Сортировать ПО')}
+        label={t('Сортировать')}
         options={sortFieldOptions}
         value={sort}
         onChange={onChangeSort} />
@@ -63,6 +63,6 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
         options={orderOptions}
         value={order}
         onChange={onChangeOrder} />
-    </div>
+    </HStack>
   );
 };

@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './CommentList.module.scss';
 import { Comment } from '../../model/types/comment';
 import { useTranslation } from 'react-i18next';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Text } from 'shared/ui/Text';
+import { VStack } from 'shared/ui/Stack';
 
 interface CommentListProps {
   className?: string;
@@ -19,14 +19,12 @@ export const CommentList: FC<CommentListProps> = (props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.CommentList, {}, [className])}>
+      <VStack max className={classNames('', {}, [className])} gap='16'>
         <CommentCard
-          className={cls.comment}
           isLoading={true} />
         <CommentCard
-          className={cls.comment}
           isLoading={true} />
-      </div>
+      </VStack>
     );
   }
 
@@ -35,15 +33,14 @@ export const CommentList: FC<CommentListProps> = (props) => {
   }
 
   return (
-    <div className={classNames(cls.CommentList, {}, [className])}>
+    <VStack max className={classNames('', {}, [className])} gap='16'>
       {
         comments.map(comment =>
           <CommentCard
-            className={cls.comment}
             key={comment.id}
             comment={comment}
             isLoading={isLoading} />)
       }
-    </div>
+    </VStack>
   );
 };

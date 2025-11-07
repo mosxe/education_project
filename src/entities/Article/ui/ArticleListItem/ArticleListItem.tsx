@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ArticleListItemProps {
   className?: string;
@@ -36,25 +37,26 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
     return (
-      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        <Card>
-          <div className={cls.header}>
+      <Card>
+        <VStack max gap='8' className={classNames('', {}, [className, cls[view]])}>
+          <HStack gap='8'>
             <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={cls.username} />
-            <Text text={article.createdAt} className={cls.date} />
-          </div>
+            <Text text={article.user.username} />
+          </HStack>
+          <Text text={article.createdAt} className={cls.date} />
           <Text title={article.title} className={cls.title} />
           {types}
           <img src={article.img} className={cls.img} alt={article.title} />
           {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
-          <div className={cls.footer}>
+          <HStack max gap='8' align='center' className={cls.footer}>
             <AppLink to={RoutePath.article_details + article.id}>
               <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
             </AppLink>
             {views}
-          </div>
-        </Card>
-      </div>
+          </HStack>
+        </VStack >
+      </Card >
+
     );
   }
 
@@ -62,18 +64,20 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     <AppLink
       target={target}
       to={RoutePath.article_details + article.id}
-      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+      className={classNames('', {}, [className, cls[view]])}
     >
       <Card>
-        <div className={cls.imageWrapper}>
-          <img src={article.img} className={cls.img} alt={article.title} />
-          <Text text={article.createdAt} className={cls.date} />
-        </div>
-        <div className={cls.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <Text text={article.title} className={cls.title} />
+        <VStack max gap='8'>
+          <HStack max align='center' >
+            <img src={article.img} className={cls.img} alt={article.title} />
+            <Text text={article.createdAt} className={cls.date} />
+          </HStack>
+          <HStack max align='center' gap='4'>
+            {types}
+            {views}
+          </HStack>
+          <Text text={article.title} className={cls.title} />
+        </VStack>
       </Card>
     </AppLink >
   );
