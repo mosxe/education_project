@@ -40,6 +40,7 @@ export const SideBar = memo((props: SideBarProps) => {
       <VStack
         className={cls.items}
         gap="8"
+        role='navigation'
       >
         {itemList}
       </VStack>
