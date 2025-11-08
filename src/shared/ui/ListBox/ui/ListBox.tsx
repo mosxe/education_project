@@ -4,14 +4,13 @@ import cls from './ListBox.module.scss';
 import { classNames } from 'shared/lib';
 import { Button } from 'shared/ui/Button';
 import { VStack } from 'shared/ui/Stack';
+import { DropdownDirection } from '../../../types/ui';
 
 export interface ListBoxItem {
   value: string;
   content: ReactNode;
   disabled?: boolean;
 }
-
-type DropdownDirection = 'top' | 'bottom';
 
 interface ListBoxProps {
   items?: ListBoxItem[];
@@ -24,12 +23,19 @@ interface ListBoxProps {
   label?: string;
 }
 
+const mapDirectionClass: Record<DropdownDirection, string> = {
+  'bottom left': cls.optionsBottomLeft,
+  'bottom right': cls.optionsBottomRight,
+  'top left': cls.optionsTopLeft,
+  'top right': cls.optionsTopRight,
+};
+
 
 
 export const ListBox = (props: ListBoxProps) => {
-  const { items, value, defaultValue, className, onChange, readonly, direction = 'bottom', label } = props;
+  const { items, value, defaultValue, className, onChange, readonly, direction = 'bottom left', label } = props;
 
-  const optionsClasses = [cls[direction]];
+  const optionsClasses = [mapDirectionClass[direction]];
 
   return (
     <VStack gap='4'>
