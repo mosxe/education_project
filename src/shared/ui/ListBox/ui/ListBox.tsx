@@ -1,0 +1,70 @@
+import { Fragment, ReactNode } from 'react';
+import { Listbox as HListBox } from '@headlessui/react';
+import cls from './ListBox.module.scss';
+import { classNames } from 'shared/lib';
+import { Button } from 'shared/ui/Button';
+import { VStack } from 'shared/ui/Stack';
+
+export interface ListBoxItem {
+  value: string;
+  content: ReactNode;
+  disabled?: boolean;
+}
+
+type DropdownDirection = 'top' | 'bottom';
+
+interface ListBoxProps {
+  items?: ListBoxItem[];
+  value?: string;
+  defaultValue?: string;
+  onChange: (value: string) => void;
+  className?: string;
+  readonly?: boolean;
+  direction?: DropdownDirection;
+  label?: string;
+}
+
+
+
+export const ListBox = (props: ListBoxProps) => {
+  const { items, value, defaultValue, className, onChange, readonly, direction = 'bottom', label } = props;
+
+  const optionsClasses = [cls[direction]];
+
+  return (
+    <VStack gap='4'>
+      {label && <span>{label}</span>}
+      <HListBox
+        as='div'
+        className={classNames(cls.ListBox, {}, [className])}
+        value={value}
+        onChange={onChange}
+        disabled={readonly}
+      >
+        <HListBox.Button className={cls.trigger} as='div'>
+          <Button disabled={readonly}>
+            {value ?? defaultValue}
+          </Button>
+        </HListBox.Button>
+        <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
+          {items?.map((item) => (
+            <HListBox.Option
+              key={item.value}
+              value={item.value}
+              disabled={item.disabled}
+              as={Fragment}
+            >
+              {({ active, selected }) => (
+                <li
+                  className={classNames(cls.item, { [cls.active]: active, [cls.selected]: selected, [cls.disabled]: item.disabled })}
+                >
+                  {item.value}
+                </li>
+              )}
+            </HListBox.Option>
+          ))}
+        </HListBox.Options>
+      </HListBox>
+    </VStack>
+  );
+};
