@@ -5,6 +5,7 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
 import { scrollSaveReducer } from 'features/ScrollSave';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export const createReduxStore = (
   initialState?: StateSchema,
@@ -14,7 +15,8 @@ export const createReduxStore = (
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    scrollSave: scrollSaveReducer
+    scrollSave: scrollSaveReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -30,7 +32,7 @@ export const createReduxStore = (
             api: $api
           },
         },
-      })
+      }).concat(rtkApi.middleware)
   });
 
   // @ts-expect-error"
