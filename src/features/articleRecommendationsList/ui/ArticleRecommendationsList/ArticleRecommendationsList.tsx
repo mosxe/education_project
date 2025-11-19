@@ -15,7 +15,7 @@ export const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = (
   const { t } = useTranslation('article-details');
   const { data: articles, isLoading, isError } = useArticleRecommendationsList(3);
 
-  if (isLoading || isError) {
+  if (isLoading || isError || !articles) {
     return null;
   }
 

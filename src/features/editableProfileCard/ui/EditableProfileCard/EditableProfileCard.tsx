@@ -90,7 +90,14 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <VStack gap="8" max className={classNames(cls.EditableProfileCard, {}, [className])}>
         <EditableProfileCardHeader className={cls.profileCardHeader} />
-        {validateErrors?.length && validateErrors.map(error => <Text key={error} theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />)}
+        {validateErrors?.length && validateErrors.map(error => (
+          <Text
+            key={error}
+            theme={TextTheme.ERROR}
+            text={validateErrorTranslates[error]}
+            data-testid="EditableProfileCard.Error"
+          />
+        ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}
