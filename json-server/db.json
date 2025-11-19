@@ -1294,6 +1294,18 @@
       "userId": "2",
       "text": "tttt",
       "id": "yCDNG5z"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "123",
+      "id": "OMUdRXS"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "444",
+      "id": "ZxC9hBR"
     }
   ],
   "users": [
@@ -1315,10 +1327,10 @@
   "profile": [
     {
       "id": "1",
-      "first": "first",
+      "first": "first11",
       "lastname": "lastname",
       "age": 32,
-      "currency": "RUB",
+      "currency": "USD",
       "country": "Russian",
       "city": "Moscow",
       "username": "admin",

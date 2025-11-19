@@ -1,21 +1,19 @@
 import { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ProfilePageHeader.module.scss';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getProfileData, getProfileReadonly } from 'entities/Profile';
+import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'features/editableProfileCard';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { profileActions, updateProfileData } from 'entities/Profile';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('profile');
   const authData = useSelector(getUserAuthData);
@@ -40,7 +38,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
 
   return (
     <HStack
-      className={classNames(cls.ProfilePageHeader, {}, [className])}
+      className={classNames('', {}, [className])}
       justify='between'
       max
     >

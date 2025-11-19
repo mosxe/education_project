@@ -3,7 +3,7 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ReducersMapObject, AnyAction, Reducer } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/Profile';
+import { ProfileSchema } from 'features/editableProfileCard';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import {
