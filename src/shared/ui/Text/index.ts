@@ -1,1 +1,2 @@
-export { Text, TextTheme, TextSize } from './ui/Text';
+export { Text, TextTheme } from './ui/Text';
+export type { TextSize } from './ui/Text';

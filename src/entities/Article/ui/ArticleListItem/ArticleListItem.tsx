@@ -1,7 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { Text } from 'shared/ui/Text';
 import { Icon } from 'shared/ui/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
@@ -13,6 +13,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
 interface ArticleListItemProps {
   className?: string;
