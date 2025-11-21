@@ -22,6 +22,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const authData = useSelector(getUserAuthData);
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
+
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
   }, []);
@@ -57,6 +58,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
       <Button
+        className={cls.actions}
         theme={ButtonTheme.CLEAR_INVERTED}
         onClick={onShowModal}
       >
