@@ -1,0 +1,22 @@
+.item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.options {
+  position: absolute;
+  z-index: 10000;
+  background-color: var(--listbox-bg);
+  border-radius: 12px;
+  box-shadow: 4px 2px 8px var(--listbox-bg);
+
+  & .item:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  & .item:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+}

@@ -1,30 +1,18 @@
-.ListBox {
+.popup {
   position: relative;
 }
 
 .trigger {
   background: none;
-  border: none;
   outline: none;
   padding: 0;
   margin: 0;
-}
-
-.options {
-  position: absolute;
-  z-index: 10000;
-  background-color: var(--listbox-bg);
-  border-radius: 12px;
-  box-shadow: 4px 2px 8px var(--listbox-bg);
-}
-
-.item {
-  padding: 10px 20px;
+  border: none;
   cursor: pointer;
 }
 
-.active  {
-  background-color: var(--inverted-primary-color);
+.active {
+  background: var(--inverted-primary-color);
 }
 
 .selected {
