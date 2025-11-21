@@ -8,6 +8,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 import { useCallback, useState } from 'react';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 
 interface NotificationButtonProps {
   className?: string;
@@ -32,9 +33,11 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
           <Icon Svg={NotificationIcon} inverted />
         </Button>
-        <Drawer isOpen={isOpen} onClose={onCloseDrawer} lazy>
-          <NotificationList className={classNames(cls.NotificationButton, {}, [cls.NotificationButtonMobile])} />
-        </Drawer>
+        <AnimationProvider>
+          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+            <NotificationList className={classNames(cls.NotificationButton, {}, [cls.NotificationButtonMobile])} />
+          </Drawer>
+        </AnimationProvider>
       </>
     );
   }
