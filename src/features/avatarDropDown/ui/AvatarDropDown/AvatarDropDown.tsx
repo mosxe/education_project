@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Dropdown } from 'shared/ui/Popups';
 import { Avatar } from 'shared/ui/Avatar';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/const/router';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
