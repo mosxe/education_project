@@ -1406,5 +1406,41 @@
       "username": "username",
       "avatar": "https://www.shutterstock.com/image-vector/avatar-bald-man-profile-handsome-260nw-2550163951.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "1111",
+      "id": "wh286p6"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 3,
+      "id": "AE5xh-e"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "rate": 1,
+      "feedback": "",
+      "id": "hU9_D5Q"
+    }
   ]
 }

@@ -15,7 +15,7 @@ const stars = [1, 2, 3, 4, 5];
 
 export const StartRating = (props: StartRatingProps) => {
   const { className, size = 30, selectedStars = 0, onSelect } = props;
-  const [currentStarsCount, setCurrentStarsCount] = useState<number>(0);
+  const [currentStarsCount, setCurrentStarsCount] = useState<number>(selectedStars);
   const [isSelected, setIsSelected] = useState<boolean>(Boolean(selectedStars));
 
   const onHover = (starsCount: number) => () => {

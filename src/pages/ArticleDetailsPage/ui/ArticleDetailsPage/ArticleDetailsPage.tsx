@@ -10,6 +10,7 @@ import { Page } from 'shared/ui/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleRating } from 'features/articleRating';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -34,6 +35,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <Page className={classNames('', {}, [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
+        <ArticleRating articleId={id} className={cls.commentTitle} />
         <ArticleRecommendationsList className={cls.commentTitle} />
         <ArticleDetailsComments id={id} className={cls.commentTitle} />
       </Page>
