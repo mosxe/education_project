@@ -9,7 +9,7 @@ import { Input } from 'shared/ui/Input';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { Drawer } from 'shared/ui/Drawer';
 
 interface RatingCardProps {
   className?: string;

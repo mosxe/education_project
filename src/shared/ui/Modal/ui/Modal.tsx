@@ -3,7 +3,7 @@ import { Portal } from '../../Portal';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { Overlay } from '../../Overlay/Overlay';
+import { Overlay } from '../../Overlay';
 import { useModal } from 'shared/lib/hooks/useModal/useModal';
 
 interface ModalProps {

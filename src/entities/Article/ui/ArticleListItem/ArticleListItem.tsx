@@ -11,7 +11,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppLink } from 'shared/ui/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 

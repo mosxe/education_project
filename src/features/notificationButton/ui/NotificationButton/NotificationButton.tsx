@@ -5,7 +5,7 @@ import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { Popover } from 'shared/ui/Popups';
 import { NotificationList } from 'entities/Notification';
 import { Button, ButtonTheme } from 'shared/ui/Button';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { Drawer } from 'shared/ui/Drawer';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 import { useCallback, useState } from 'react';
 

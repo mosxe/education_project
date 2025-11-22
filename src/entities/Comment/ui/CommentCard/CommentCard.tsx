@@ -5,7 +5,7 @@ import { Comment } from '../../model/types/comment';
 import { Text } from 'shared/ui/Text';
 import { Avatar } from 'shared/ui/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppLink } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface CommentCardProps {

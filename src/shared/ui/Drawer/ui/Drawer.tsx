@@ -4,9 +4,9 @@ import React, {
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
-import { Overlay } from '../Overlay/Overlay';
+import { Overlay } from '../../Overlay';
 import cls from './Drawer.module.scss';
-import { Portal } from '../Portal';
+import { Portal } from '../../Portal';
 import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 
 interface DrawerProps {
@@ -19,7 +19,7 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-export const DrawerContent = memo((props: DrawerProps) => {
+const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
   const { theme } = useTheme();
