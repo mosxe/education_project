@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react';
 import { Portal } from '../../Portal';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from 'shared/lib/hooks/useTheme/useTheme';
 import { Overlay } from '../../Overlay';
 import { useModal } from 'shared/lib/hooks/useModal/useModal';
 
