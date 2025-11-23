@@ -5,7 +5,14 @@ const config: StorybookConfig = {
     "../../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    "@storybook/addon-webpack5-compiler-swc"
+    "@storybook/addon-webpack5-compiler-swc",
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        backgrounds: false,
+      },
+    },
+    "@storybook/addon-themes"
   ],
   "framework": {
     "name": "@storybook/react-webpack5",
