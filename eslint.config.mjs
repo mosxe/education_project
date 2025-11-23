@@ -8,7 +8,6 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 import i18next from 'eslint-plugin-i18next';
 import { fixupPluginRules } from "@eslint/compat";
 import unusedImports from "eslint-plugin-unused-imports";
-import importPlugin from 'eslint-plugin-import';
 
 export default [js.configs.recommended, i18next.configs['flat/recommended']
   , {
@@ -41,7 +40,6 @@ export default [js.configs.recommended, i18next.configs['flat/recommended']
   rules: {
     ...reactPlugin.configs.recommended.rules,
     ...tsPlugin.configs.recommended.rules,
-    // ...importPlugin.flatConfigs.recommended,
     "unused-imports/no-unused-imports": "error",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-unused-vars": [
