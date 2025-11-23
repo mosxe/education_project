@@ -34,7 +34,7 @@ export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = (props) => {
   });
 
   if (isError) {
-    return <Text text="Ошибка при загрузке статей" align='center' theme={TextTheme.ERROR} />;
+    return <Text text={t('Ошибка при загрузке статей')} align='center' theme={TextTheme.ERROR} />;
   }
 
   return (
