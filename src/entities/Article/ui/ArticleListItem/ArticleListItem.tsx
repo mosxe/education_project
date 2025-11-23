@@ -10,7 +10,7 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { RoutePath } from 'shared/const/router';
+import { getRouteArticleDetails } from 'shared/const/router';
 import { AppLink } from 'shared/ui/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
@@ -50,7 +50,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           <img src={article.img} className={cls.img} alt={article.title} />
           {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
           <HStack max gap='8' align='center' className={cls.footer}>
-            <AppLink to={RoutePath.article_details + article.id}>
+            <AppLink to={getRouteArticleDetails(article.id)}>
               <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
             </AppLink>
             {views}
@@ -64,7 +64,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   return (
     <AppLink
       target={target}
-      to={RoutePath.article_details + article.id}
+      to={getRouteArticleDetails(article.id)}
       className={classNames('', {}, [className, cls[view]])}
     >
       <Card>
