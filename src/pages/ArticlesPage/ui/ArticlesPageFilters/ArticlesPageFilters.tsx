@@ -13,11 +13,11 @@ import { useSelector } from 'react-redux';
 import {
   ArticleSortField,
   ArticleView,
-  ArticleViewSelector,
-  ArticleSortSelector,
-  ArticleTypeTabs,
   ArticleType
 } from 'entities/Article';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
+import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'shared/ui/Card';

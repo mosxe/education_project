@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView } from '../../model/consts/consts';
+import { ArticleView } from 'entities/Article';
 import ListSmallIcon from 'shared/assets/icons/list_small.svg';
 import ListBigIcon from 'shared/assets/icons/list_big.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button';
