@@ -22,7 +22,7 @@ import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input';
-import { SortOrder } from 'shared/types';
+import { SortOrder } from 'shared/types/sort';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 
