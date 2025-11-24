@@ -5,7 +5,7 @@ const AdminPanelPage = () => {
   const { t } = useTranslation();
 
   return (
-    <Page>
+    <Page data-testid='AdminPanelPage'>
       <h2>{t('Админ панель')}</h2>
     </Page>
   );
