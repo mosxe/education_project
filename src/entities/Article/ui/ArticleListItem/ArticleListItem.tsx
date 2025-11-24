@@ -14,6 +14,8 @@ import { getRouteArticleDetails } from 'shared/const/router';
 import { AppLink } from 'shared/ui/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+import { AppImage } from 'shared/ui/AppImage';
+import { Skeleton } from 'shared/ui/Skeleton';
 
 interface ArticleListItemProps {
   className?: string;
@@ -47,7 +49,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           <Text text={article.createdAt} className={cls.date} />
           <Text title={article.title} className={cls.title} />
           {types}
-          <img src={article.img} className={cls.img} alt={article.title} />
+          <AppImage
+            src={article.img}
+            className={cls.img}
+            alt={article.title}
+            fallback={<Skeleton width='100%' height={250} />}
+          />
           {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
           <HStack max gap='8' align='center' className={cls.footer}>
             <AppLink to={getRouteArticleDetails(article.id)}>
@@ -70,7 +77,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
       <Card>
         <VStack max gap='8'>
           <HStack max align='center' >
-            <img src={article.img} className={cls.img} alt={article.title} />
+            <AppImage
+              src={article.img}
+              className={cls.img}
+              alt={article.title}
+              fallback={<Skeleton width={200} height={200} />}
+            />
             <Text text={article.createdAt} className={cls.date} />
           </HStack>
           <HStack max align='center' gap='4'>
