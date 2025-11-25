@@ -20,7 +20,11 @@ export const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = (
   }
 
   return (
-    <VStack gap='16' className={classNames('', {}, [className])}>
+    <VStack
+      gap='16'
+      className={classNames('', {}, [className])}
+      data-testid="ArticleRecommendationsList"
+    >
       <Text size="l" title={t('Рекомендуем')} />
       <ArticleList
         articles={articles}

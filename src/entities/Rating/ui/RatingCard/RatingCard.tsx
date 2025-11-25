@@ -64,12 +64,13 @@ export const RatingCard = (props: RatingCardProps) => {
         value={feedback}
         onChange={setFeeback}
         placeholder={t('Ваш отзыв')}
+        data-testid="RatingCard.Input"
       />
     </>
   );
 
   return (
-    <Card className={classNames('', {}, [className])}>
+    <Card className={classNames('', {}, [className])} data-testid="RatingCard">
       <VStack align='center' gap="8">
         <Text title={starsCount > 0 ? t('Спасибо за оценку!') : title} />
         <StartRating size={30} onSelect={(onSelectStars)} selectedStars={starsCount} />
@@ -95,10 +96,16 @@ export const RatingCard = (props: RatingCardProps) => {
                 <Button
                   theme={ButtonTheme.OUTLINE_RED}
                   onClick={cancelHandle}
+                  data-testid="RatingCard.Close"
                 >
                   {t('Закрыть')}
                 </Button>
-                <Button onClick={acceptHandle}>{t('Отправить')}</Button>
+                <Button
+                  onClick={acceptHandle}
+                  data-testid="RatingCard.Send"
+                >
+                  {t('Отправить')}
+                </Button>
               </HStack>
             </VStack>
           </Modal>

@@ -24,7 +24,14 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
   const { className, articles, isLoading, view = ArticleView.SMALL, target = '_self' } = props;
 
   const renderArticle = (article: Article) => {
-    return <ArticleListItem article={article} view={view} key={article.id} target={target} />;
+    return (
+      <ArticleListItem
+        article={article}
+        view={view}
+        key={article.id}
+        target={target}
+      />
+    );
   };
 
   if (!isLoading && !articles.length) {
@@ -36,7 +43,7 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
   }
 
   return (
-    <div className={classNames('', {}, [className, cls[view]])}>
+    <div data-testid="ArticleList" className={classNames('', {}, [className, cls[view]])}>
       {articles.length > 0 ? articles.map(renderArticle) : null}
       {isLoading && getSkeletons(view)}
     </div>

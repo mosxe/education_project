@@ -74,7 +74,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
       <HStack justify='center' align='center' max className={cls.avatarWrapper}>
         <Avatar src={article?.img} size={200} className={cls.avatar} />
       </HStack>
-      <VStack gap='4' max>
+      <VStack gap='4' max data-testid="ArticleDetails.Info">
         <Text
           title={article?.title}
           text={article?.subtitle}

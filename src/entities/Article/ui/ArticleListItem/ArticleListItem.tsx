@@ -40,7 +40,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
     return (
-      <Card>
+      <Card data-testid="ArticleListItem">
         <VStack max gap='8' className={classNames('', {}, [className, cls[view]])}>
           <HStack gap='8'>
             <Avatar size={30} src={article.user.avatar} />
@@ -70,6 +70,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   return (
     <AppLink
+      data-testid="ArticleListItem"
       target={target}
       to={getRouteArticleDetails(article.id)}
       className={classNames('', {}, [className, cls[view]])}
