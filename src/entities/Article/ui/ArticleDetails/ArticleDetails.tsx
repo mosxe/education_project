@@ -1,7 +1,10 @@
 import { FC, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetails.module.scss';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -36,11 +39,29 @@ const reducers: ReducersList = {
 const renderBlock = (block: ArticleBlock) => {
   switch (block.type) {
     case ArticleBlockType.CODE:
-      return <ArticleCodeBlockComponent key={block.id} block={block} className={cls.block} />;
+      return (
+        <ArticleCodeBlockComponent
+          key={block.id}
+          block={block}
+          className={cls.block}
+        />
+      );
     case ArticleBlockType.TEXT:
-      return <ArticleTextBlockComponent key={block.id} block={block} className={cls.block} />;
+      return (
+        <ArticleTextBlockComponent
+          key={block.id}
+          block={block}
+          className={cls.block}
+        />
+      );
     case ArticleBlockType.IMAGE:
-      return <ArticleImageBlockComponent key={block.id} block={block} className={cls.block} />;
+      return (
+        <ArticleImageBlockComponent
+          key={block.id}
+          block={block}
+          className={cls.block}
+        />
+      );
     default:
       return null;
   }
@@ -60,45 +81,60 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   let content;
 
   if (isLoading) {
-    content = <>
-      <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
-      <Skeleton className={cls.title} width={300} height={32} />
-      <Skeleton className={cls.skeleton} width={600} height={24} />
-      <Skeleton className={cls.skeleton} width="100%" height={200} />
-      <Skeleton className={cls.skeleton} width="100%" height={200} />
-    </>;
+    content = (
+      <>
+        <Skeleton
+          className={cls.avatar}
+          width={200}
+          height={200}
+          border='50%'
+        />
+        <Skeleton className={cls.title} width={300} height={32} />
+        <Skeleton className={cls.skeleton} width={600} height={24} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
+        <Skeleton className={cls.skeleton} width='100%' height={200} />
+      </>
+    );
   } else if (error) {
     content = <Text title='Статья не найдена' align='center' />;
   } else {
-    content = <>
-      <HStack justify='center' align='center' max className={cls.avatarWrapper}>
-        <Avatar src={article?.img} size={200} className={cls.avatar} />
-      </HStack>
-      <VStack gap='4' max data-testid="ArticleDetails.Info">
-        <Text
-          title={article?.title}
-          text={article?.subtitle}
-          className={cls.title}
-          size='l'
-        />
-        <HStack gap="8" >
-          <Icon Svg={EyeIcon} />
-          <Text text={String(article?.views)} />
+    content = (
+      <>
+        <HStack
+          justify='center'
+          align='center'
+          max
+          className={cls.avatarWrapper}
+        >
+          <Avatar src={article?.img} size={200} className={cls.avatar} />
         </HStack>
-        <HStack gap="8" >
-          <Icon Svg={CalendarIcon} />
-          <Text text={article?.createdAt} />
-        </HStack>
-      </VStack>
-      {
-        article?.blocks.map(renderBlock)
-      }
-    </>;
+        <VStack gap='4' max data-testid='ArticleDetails.Info'>
+          <Text
+            title={article?.title}
+            text={article?.subtitle}
+            className={cls.title}
+            size='l'
+          />
+          <HStack gap='8'>
+            <Icon Svg={EyeIcon} />
+            <Text text={String(article?.views)} />
+          </HStack>
+          <HStack gap='8'>
+            <Icon Svg={CalendarIcon} />
+            <Text text={article?.createdAt} />
+          </HStack>
+        </VStack>
+        {article?.blocks.map(renderBlock)}
+      </>
+    );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-      <VStack gap='16' className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack
+        gap='16'
+        className={classNames(cls.ArticleDetails, {}, [className])}
+      >
         {content}
       </VStack>
     </DynamicModuleLoader>
