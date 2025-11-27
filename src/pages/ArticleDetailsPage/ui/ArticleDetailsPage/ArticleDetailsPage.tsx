@@ -4,13 +4,17 @@ import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text';
 import cls from './ArticleDetailsPage.module.scss';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { Page } from 'shared/ui/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from 'features/articleRating';
+import { getFeatureFlags } from 'shared/lib/features';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -23,11 +27,14 @@ const reducers: ReducersList = {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
 
   if (id === undefined) {
-    return <div className={classNames('', {}, [className])}>
-      <Text text='Статья не найдена' />
-    </div>;
+    return (
+      <div className={classNames('', {}, [className])}>
+        <Text text='Статья не найдена' />
+      </div>
+    );
   }
 
   return (
@@ -35,7 +42,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <Page className={classNames('', {}, [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} className={cls.commentTitle} />
+        {isArticleRatingEnabled && (
+          <ArticleRating articleId={id} className={cls.commentTitle} />
+        )}
         <ArticleRecommendationsList className={cls.commentTitle} />
         <ArticleDetailsComments id={id} className={cls.commentTitle} />
       </Page>
