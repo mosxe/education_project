@@ -1,6 +1,10 @@
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 import AppRouter from './AppRouter';
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from 'shared/const/router';
+import {
+  getRouteAbout,
+  getRouteAdmin,
+  getRouteProfile
+} from 'shared/const/router';
 import { screen } from '@testing-library/react';
 
 describe('app/router/AppRuoter', function () {
@@ -22,7 +26,7 @@ describe('app/router/AppRuoter', function () {
 
   test('Редирект неавторизованного пользователя на главную страницу', async () => {
     componentRender(<AppRouter />, {
-      route: getRouteProfile('1'),
+      route: getRouteProfile('1')
     });
     const page = await screen.findByTestId('MainPage');
     expect(page).toBeInTheDocument();
@@ -30,11 +34,11 @@ describe('app/router/AppRuoter', function () {
 
   test('Доступ к странице авторизованного пользователя', async () => {
     componentRender(<AppRouter />, {
-      route: getRouteProfile('1'),
+      route: getRouteProfile('2'),
       initialState: {
         user: {
           authData: {
-            id: '1'
+            id: '2'
           },
           _inited: true
         }
