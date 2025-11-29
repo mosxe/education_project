@@ -14,7 +14,8 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from 'features/articleRating';
-import { getFeatureFlags } from 'shared/lib/features';
+import { getFeatureFlag } from 'shared/lib/features';
+import { useTranslation } from 'react-i18next';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -27,7 +28,8 @@ const reducers: ReducersList = {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
   const { id } = useParams<{ id: string }>();
-  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+  const { t } = useTranslation('article-details');
 
   if (id === undefined) {
     return (
