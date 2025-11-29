@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <div className={classNames('app', {}, [])}>
-      <Suspense fallback="">
+      <Suspense fallback=''>
         <Navbar />
         <div className='content-page'>
           <SideBar />
