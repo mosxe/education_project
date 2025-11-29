@@ -10,6 +10,7 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { Page } from 'shared/ui/Page';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlePageGreeting } from 'features/articlePageGreeting';
 
 interface ArticlesPageProps {
   className?: string;
@@ -36,6 +37,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       >
         <ArticlesPageFilters />
         <ArticleInfiniteList />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );

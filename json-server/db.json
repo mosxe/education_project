@@ -1564,7 +1564,8 @@
       "jsonSettings": {
         "theme": "app_purple_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://abrakadabra.fun/uploads/posts/2022-02/thumbs/1644380131_16-abrakadabra-fun-p-avatarki-dlya-vatsapa-anime-dlya-parnei-33.jpg"
     },
@@ -1582,7 +1583,8 @@
       "jsonSettings": {
         "theme": "app_ligth_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://www.shutterstock.com/image-vector/avatar-bald-man-profile-handsome-260nw-2550163951222.jpg"
     },
