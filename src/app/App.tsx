@@ -3,16 +3,23 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { SideBar } from 'widgets/SideBar';
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { userActions, getUserInited } from 'entities/User';
+import { useSelector } from 'react-redux';
+import { getUserInited } from 'entities/User';
+import { initAuthData } from 'entities/User';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageLoader } from 'widgets/PageLoader';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
+
+  if (!inited) {
+    return <PageLoader />;
+  }
 
   return (
     <div className={classNames('app', {}, [])}>
