@@ -10,15 +10,16 @@ body {
 }
 
 .app {
+  background: var(--bg-redesigned);
   min-height: 100vh;
-  background: var(--bg-color);
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
 }
 
 .content-page {
   display: flex;
 }
 
- 
 *::-webkit-scrollbar {
   width: 12px;
   height: 8px;

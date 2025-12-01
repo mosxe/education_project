@@ -8,6 +8,7 @@ import { getUserInited } from 'entities/User';
 import { initAuthData } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from 'widgets/PageLoader';
+import { MainLayout } from 'shared/layouts/MainLayout';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -24,11 +25,11 @@ const App = () => {
   return (
     <div className={classNames('app', {}, [])}>
       <Suspense fallback=''>
-        <Navbar />
-        <div className='content-page'>
-          <SideBar />
-          {inited && <AppRouter />}
-        </div>
+        <MainLayout
+          header={<Navbar />}
+          content={<AppRouter />}
+          sidebar={<SideBar />}
+        />
       </Suspense>
     </div>
   );

@@ -8,6 +8,7 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from 'shared/ui/Stack';
+import { AppLogo } from 'shared/ui/AppLogo';
 
 interface SideBarProps {
   className?: string;
@@ -20,15 +21,21 @@ export const SideBar = memo((props: SideBarProps) => {
   const onToogle = () => setCollapsed((prev) => !prev);
 
   const itemList = useMemo(() => {
-    return SidebarItemList.map((item) => <SidebarItem item={item} key={item.path} collapsed={collapsed} />);
+    return SidebarItemList.map((item) => (
+      <SidebarItem item={item} key={item.path} collapsed={collapsed} />
+    ));
   }, [collapsed, SidebarItemList]);
 
   return (
     <aside
-      data-testid="sidebar"
-      className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [className])}>
+      data-testid='sidebar'
+      className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
+        className
+      ])}
+    >
+      <AppLogo />
       <Button
-        data-testid="sidebar-toggle"
+        data-testid='sidebar-toggle'
         className={cls.collapseBtn}
         onClick={onToogle}
         theme={ButtonTheme.BACKGROUND_INVERTED}
@@ -37,11 +44,7 @@ export const SideBar = memo((props: SideBarProps) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <VStack
-        className={cls.items}
-        gap="8"
-        role='navigation'
-      >
+      <VStack className={cls.items} gap='8' role='navigation'>
         {itemList}
       </VStack>
       <div className={cls.switchers}>

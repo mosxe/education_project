@@ -1,10 +1,8 @@
 .SideBar {
-  height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width);
-  background: var(--inverted-bg-color);
-  position: relative;
-  flex-shrink: 0;
-  transition: width 0.2s;
+  width: 220px;
+  height: 100%;
+  background: var(--light-bg-redesigned);
+  border-radius: 32px;
 }
 
 .switchers {
