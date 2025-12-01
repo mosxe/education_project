@@ -1,25 +1,32 @@
 .item {
+  width: 100%;
   margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 12px;
+  padding: 0 16px;
 }
 
 .link {
-  margin-left: 10px;
   white-space: nowrap;
-}
-
-.icon {
-  width: 32px;
-  height: 32px;
-  fill: var(--inverted-primary-color);
 }
 
 .collapsed {
   .link {
-    opacity: 0;
-    width: 0;
-    transition: 0.2s opacity;
+    display: none;
   }
+
+  &.item {
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+.active {
+  background: linear-gradient(
+    89.97deg,
+    rgb(29 89 255 / 30%) 1.15%,
+    rgb(94 211 243 / 0%) 99.97%
+  );
+  box-shadow: inset 2px 0 0 var(--accent-redesigned);
 }

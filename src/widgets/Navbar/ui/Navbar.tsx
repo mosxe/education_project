@@ -1,5 +1,5 @@
 import { memo, useCallback, useState } from 'react';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
@@ -40,11 +40,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
-      <Button
-        className={cls.actions}
-        theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={onShowModal}
-      >
+      <Button className={cls.actions} variant='clear' onClick={onShowModal}>
         {t('Войти')}
       </Button>
       {isAuthModal && (

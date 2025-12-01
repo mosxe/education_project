@@ -15,7 +15,13 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = (props) => {
-  const { className, src, size = 100, alt = 'Картинка', fallbackInverted } = props;
+  const {
+    className,
+    src,
+    size = 100,
+    alt = 'Картинка',
+    fallbackInverted
+  } = props;
 
   const styles = useMemo<CSSProperties>(() => {
     return {
@@ -24,7 +30,7 @@ export const Avatar: FC<AvatarProps> = (props) => {
     };
   }, [size]);
 
-  const errorFallback = <Icon Svg={UserIcon} inverted={fallbackInverted} />;
+  const errorFallback = <Icon Svg={UserIcon} />;
 
   return (
     <AppImage

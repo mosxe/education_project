@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -16,7 +16,9 @@ interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (
+  props
+) => {
   const { className } = props;
   const { t } = useTranslation('profile');
   const authData = useSelector(getUserAuthData);
@@ -33,36 +35,33 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
     dispatch(profileActions.cancelEdit());
   }, [dispatch]);
 
-
   const onSave = useCallback(() => {
     dispatch(updateProfileData());
   }, [dispatch]);
 
-
   return (
-    <HStack
-      className={classNames('', {}, [className])}
-      justify='between'
-      max
-    >
+    <HStack className={classNames('', {}, [className])} justify='between' max>
       <Text title={t('Профиль')} />
-      {
-        canEdit &&
+      {canEdit &&
         (readonly ? (
-          <Button theme={ButtonTheme.OUTLINE} onClick={onEdit} data-testid='EditableProfileCardHeader.EditButton'>
+          <Button
+            variant='outline'
+            onClick={onEdit}
+            data-testid='EditableProfileCardHeader.EditButton'
+          >
             {t('Редактировать')}
           </Button>
         ) : (
-          <HStack gap="16">
+          <HStack gap='16'>
             <Button
-              theme={ButtonTheme.OUTLINE}
+              variant='outline'
               onClick={onSave}
               data-testid='EditableProfileCardHeader.SaveButton'
             >
               {t('Сохранить')}
             </Button>
             <Button
-              theme={ButtonTheme.OUTLINE_RED}
+              variant='outline'
               onClick={onCancelEdit}
               data-testid='EditableProfileCardHeader.CancelButton'
             >

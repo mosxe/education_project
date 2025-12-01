@@ -5,10 +5,11 @@ import { HStack } from 'shared/ui/Stack';
 
 interface AppLogoProps {
   className?: string;
+  size?: number;
 }
 
 export const AppLogo = (props: AppLogoProps) => {
-  const { className } = props;
+  const { className, size = 80 } = props;
 
   return (
     <HStack
@@ -18,7 +19,7 @@ export const AppLogo = (props: AppLogoProps) => {
     >
       <div className={cls.gradientBig}></div>
       <div className={cls.gradientSmall}></div>
-      <img src={Logo} alt='logo' />
+      <img src={Logo} alt='logo' width={size} height={size} />
     </HStack>
   );
 };

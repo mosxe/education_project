@@ -4,7 +4,7 @@ import { Icon } from 'shared/ui/Icon';
 import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { Popover } from 'shared/ui/Popups';
 import { NotificationList } from 'entities/Notification';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button';
 import { Drawer } from 'shared/ui/Drawer';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 import { useCallback, useState } from 'react';
@@ -29,11 +29,15 @@ export const NotificationButton = (props: NotificationButtonProps) => {
   if (isMobile) {
     return (
       <>
-        <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
-          <Icon Svg={NotificationIcon} inverted />
+        <Button variant='clear' onClick={onOpenDrawer}>
+          <Icon Svg={NotificationIcon} />
         </Button>
         <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-          <NotificationList className={classNames(cls.NotificationButton, {}, [cls.NotificationButtonMobile])} />
+          <NotificationList
+            className={classNames(cls.NotificationButton, {}, [
+              cls.NotificationButtonMobile
+            ])}
+          />
         </Drawer>
       </>
     );
@@ -44,10 +48,11 @@ export const NotificationButton = (props: NotificationButtonProps) => {
       className={classNames('', {}, [className])}
       direction='bottom left'
       trigger={
-        <Button theme={ButtonTheme.CLEAR}>
-          <Icon Svg={NotificationIcon} inverted />
+        <Button variant='clear'>
+          <Icon Svg={NotificationIcon} />
         </Button>
-      }>
+      }
+    >
       <NotificationList className={cls.NotificationButton} />
     </Popover>
   );

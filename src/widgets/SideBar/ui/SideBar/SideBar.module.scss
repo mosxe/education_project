@@ -1,4 +1,5 @@
 .SideBar {
+  position: relative;
   width: 220px;
   height: 100%;
   background: var(--light-bg-redesigned);
@@ -10,38 +11,39 @@
   bottom: 20px;
   display: flex;
   align-items: center;
-}
-
-.lang {
-  margin-left: 12px;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
 }
 
 .collapseBtn {
   position: absolute;
-  right: -32px;
-  bottom: 32px;
+  right: 0;
+  top: 50%;
+  z-index: 10;
+  transform: rotate(90deg);
+  transition: transform 0.3s;
 }
 
 .items {
   margin-top: 20px;
-  margin-left: 20px;
 }
 
 .collapsed {
-  width: var(--sidebar-with-collapsed);
+  width: 50px;
 
-  .switchers {
-    flex-direction: column;
+  .collapseBtn {
+    transform: rotate(-90deg);
+  }
+
+  .items {
+    margin-top: 20px;
+    display: flex;
     align-items: center;
   }
 
-  .lang {
-    margin-left: 0;
-  }
-
-  .link {
-    opacity: 0;
-    width: 0;
-    transition: 0.2s opacity;
+  .switchers {
+    flex-direction: column;
+    gap: 8px;
   }
 }

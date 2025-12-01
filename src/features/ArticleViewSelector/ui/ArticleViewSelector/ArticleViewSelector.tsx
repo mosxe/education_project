@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleView } from 'entities/Article';
 import ListSmallIcon from 'shared/assets/icons/list_small.svg';
 import ListBigIcon from 'shared/assets/icons/list_big.svg';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon';
 import cls from './ArticleViewSelector.module.scss';
 import { HStack } from 'shared/ui/Stack';
@@ -22,7 +22,7 @@ const viewTypes = [
   {
     view: ArticleView.BIG,
     icon: ListBigIcon
-  },
+  }
 ];
 
 export const ArticleViewSelector: FC<ArticleViewSelectorProps> = (props) => {
@@ -34,13 +34,22 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = (props) => {
 
   return (
     <HStack gap='4' className={classNames('', {}, [className])}>
-      {
-        viewTypes.map(viewType => (
-          <Button theme={ButtonTheme.CLEAR} key={viewType.view} onClick={() => onClick(viewType.view)}>
-            <Icon Svg={viewType.icon} className={classNames('', { [cls.isNotSelected]: viewType.view !== view }, [])} />
-          </Button>)
-        )
-      }
+      {viewTypes.map((viewType) => (
+        <Button
+          variant='clear'
+          key={viewType.view}
+          onClick={() => onClick(viewType.view)}
+        >
+          <Icon
+            Svg={viewType.icon}
+            className={classNames(
+              '',
+              { [cls.isNotSelected]: viewType.view !== view },
+              []
+            )}
+          />
+        </Button>
+      ))}
     </HStack>
   );
 };

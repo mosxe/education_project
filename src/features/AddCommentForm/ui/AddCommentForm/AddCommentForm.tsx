@@ -3,12 +3,18 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AddCommentForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
-import { getAddCommentFormText, getAddCommentFormError } from '../../model/selectors/addCommentFormSelectors';
+import {
+  getAddCommentFormText,
+  getAddCommentFormError
+} from '../../model/selectors/addCommentFormSelectors';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions } from '../../model/slices/addCommentForm';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { addCommentFormReducer } from '../../model/slices/addCommentForm';
 import { HStack } from 'shared/ui/Stack';
 
@@ -28,9 +34,12 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
   const error = useSelector(getAddCommentFormError);
   const dispatch = useAppDispatch();
 
-  const onCommentTextChange = useCallback((value: string) => {
-    dispatch(addCommentFormActions.setText(value));
-  }, [dispatch]);
+  const onCommentTextChange = useCallback(
+    (value: string) => {
+      dispatch(addCommentFormActions.setText(value));
+    },
+    [dispatch]
+  );
 
   const onSendHandler = useCallback(() => {
     onSendComment(text || '');
@@ -47,18 +56,19 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
         max
         justify='between'
         className={classNames(cls.AddCommentForm, {}, [className])}
-        data-testid="AddCommentForm"
+        data-testid='AddCommentForm'
       >
-        <Input placeholder={t('Введите текст комментария')}
+        <Input
+          placeholder={t('Введите текст комментария')}
           value={text}
           onChange={onCommentTextChange}
           className={cls.input}
-          data-testid="AddCommentForm.Input"
+          data-testid='AddCommentForm.Input'
         />
         <Button
-          theme={ButtonTheme.OUTLINE}
+          variant='outline'
           onClick={onSendHandler}
-          data-testid="AddCommentForm.Button"
+          data-testid='AddCommentForm.Button'
         >
           {t('Отправить')}
         </Button>

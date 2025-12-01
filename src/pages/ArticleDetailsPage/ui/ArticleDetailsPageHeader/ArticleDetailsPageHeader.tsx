@@ -1,5 +1,5 @@
 import { FC, useCallback } from 'react';
-import { ButtonTheme, Button } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getRouteArticles, getRouteArticleEdit } from 'shared/const/router';
@@ -31,11 +31,11 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (
 
   return (
     <HStack max justify='between' gap='16' className={className}>
-      <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+      <Button variant='outline' onClick={onBackToList}>
         {t('Назад к списку')}
       </Button>
       {canEdit && (
-        <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+        <Button variant='outline' onClick={onEditArticle}>
           {t('Редактировать')}
         </Button>
       )}

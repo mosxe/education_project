@@ -7,7 +7,7 @@ import { Icon } from 'shared/ui/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { Card } from 'shared/ui/Card';
 import { Avatar } from 'shared/ui/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Button } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from 'shared/const/router';
@@ -37,11 +37,17 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   );
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+    const textBlock = article.blocks.find(
+      (block) => block.type === ArticleBlockType.TEXT
+    ) as ArticleTextBlock;
 
     return (
-      <Card data-testid="ArticleListItem">
-        <VStack max gap='8' className={classNames('', {}, [className, cls[view]])}>
+      <Card data-testid='ArticleListItem'>
+        <VStack
+          max
+          gap='8'
+          className={classNames('', {}, [className, cls[view]])}
+        >
           <HStack gap='8'>
             <Avatar size={30} src={article.user.avatar} />
             <Text text={article.user.username} />
@@ -55,29 +61,33 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             alt={article.title}
             fallback={<Skeleton width='100%' height={250} />}
           />
-          {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
+          {textBlock && (
+            <ArticleTextBlockComponent
+              block={textBlock}
+              className={cls.textBlock}
+            />
+          )}
           <HStack max gap='8' align='center' className={cls.footer}>
             <AppLink to={getRouteArticleDetails(article.id)}>
-              <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
+              <Button variant='outline'>{t('Читать далее...')}</Button>
             </AppLink>
             {views}
           </HStack>
-        </VStack >
-      </Card >
-
+        </VStack>
+      </Card>
     );
   }
 
   return (
     <AppLink
-      data-testid="ArticleListItem"
+      data-testid='ArticleListItem'
       target={target}
       to={getRouteArticleDetails(article.id)}
       className={classNames('', {}, [className, cls[view]])}
     >
       <Card>
         <VStack max gap='8'>
-          <HStack max align='center' >
+          <HStack max align='center'>
             <AppImage
               src={article.img}
               className={cls.img}
@@ -93,6 +103,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
           <Text text={article.title} className={cls.title} />
         </VStack>
       </Card>
-    </AppLink >
+    </AppLink>
   );
 };

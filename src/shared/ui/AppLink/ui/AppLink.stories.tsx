@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { AppLink, AppLinkTheme } from './AppLink';
+import { AppLink } from './AppLink';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/const/theme';
 
@@ -16,30 +16,29 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    theme: AppLinkTheme.PRIMARY,
+    variant: 'primary',
     children: 'text'
   }
 };
 
 export const PrimaryDark: Story = {
   args: {
-    theme: AppLinkTheme.PRIMARY,
+    variant: 'primary',
     children: 'text'
   },
   decorators: [ThemeDecorator(Theme.DARK)]
 };
 
-
 export const Secondary: Story = {
   args: {
-    theme: AppLinkTheme.SECONDARY,
+    variant: 'secondary',
     children: 'text'
   }
 };
 
 export const SecondaryDark: Story = {
   args: {
-    theme: AppLinkTheme.SECONDARY,
+    variant: 'secondary',
     children: 'text'
   },
   decorators: [ThemeDecorator(Theme.DARK)]
