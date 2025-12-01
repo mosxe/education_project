@@ -1,23 +1,16 @@
 import { memo } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
-
-export enum TextTheme {
-  PRIMARY = 'primary',
-  INVERTED = 'inverted',
-  ERROR = 'error'
-}
-
+export type TextVariant = 'primary' | 'error' | 'accent';
 export type TextAlign = 'left' | 'center' | 'right';
-
 export type TextSize = 's' | 'm' | 'l';
 
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
-  theme?: TextTheme;
+  variant?: TextVariant;
   align?: TextAlign;
   size?: TextSize;
   'data-testid'?: string;
@@ -26,9 +19,9 @@ interface TextProps {
 type HeaderTag = 'h1' | 'h2' | 'h3';
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTag> = {
-  's': 'h3',
-  'm': 'h2',
-  'l': 'h1'
+  s: 'h3',
+  m: 'h2',
+  l: 'h1'
 };
 
 export const Text = memo((props: TextProps) => {
@@ -36,23 +29,33 @@ export const Text = memo((props: TextProps) => {
     className,
     title,
     text,
-    theme = TextTheme.PRIMARY,
+    variant = 'primary',
     align = 'left',
     size = 'm',
-    'data-testid': dataTestId = 'Text' } = props;
-
-  const mods: Mods = {
-    [cls[theme]]: true,
-    [cls[align]]: true,
-    [cls[`size_${size}`]]: true
-  };
+    'data-testid': dataTestId = 'Text'
+  } = props;
 
   const HeaderTag = mapSizeToHeaderTag[size];
 
+  const additionalClasses = [
+    className,
+    cls[variant],
+    cls[align],
+    cls[`size_${size}`]
+  ];
+
   return (
-    <div className={classNames(cls.Text, mods, [className])}>
-      {title && <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>{title}</HeaderTag>}
-      {text && <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>{text}</p>}
+    <div className={classNames(cls.Text, {}, additionalClasses)}>
+      {title && (
+        <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
+          {text}
+        </p>
+      )}
     </div>
   );
 });

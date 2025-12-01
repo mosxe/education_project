@@ -2,7 +2,7 @@
   min-height: 100%;
   display: grid;
   grid-template-areas: 'sidebar content rightbar';
-  grid-template-columns: 284px 1fr 100px;
+  grid-template-columns: min-content 1fr 100px;
 }
 
 .sidebar {
@@ -12,6 +12,7 @@
   position: sticky;
   top: 0;
   height: 100vh;
+  max-width: 284px;
 }
 
 .content {

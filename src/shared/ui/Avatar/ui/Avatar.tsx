@@ -11,17 +11,10 @@ interface AvatarProps {
   src?: string;
   size?: number;
   alt?: string;
-  fallbackInverted?: boolean;
 }
 
 export const Avatar: FC<AvatarProps> = (props) => {
-  const {
-    className,
-    src,
-    size = 100,
-    alt = 'Картинка',
-    fallbackInverted
-  } = props;
+  const { className, src, size = 100, alt = 'Картинка' } = props;
 
   const styles = useMemo<CSSProperties>(() => {
     return {

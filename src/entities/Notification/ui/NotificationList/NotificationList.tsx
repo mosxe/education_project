@@ -23,9 +23,9 @@ export const NotificationList: FC<NotificationListProps> = (props) => {
         max
         className={classNames(cls.NotificationList, {}, [className])}
       >
-        <Skeleton width='100%' border="8px" height="80px" />
-        <Skeleton width='100%' border="8px" height="80px" />
-        <Skeleton width='100%' border="8px" height="80px" />
+        <Skeleton width='100%' border='8px' height='80px' />
+        <Skeleton width='100%' border='8px' height='80px' />
+        <Skeleton width='100%' border='8px' height='80px' />
       </VStack>
     );
   }
@@ -36,7 +36,9 @@ export const NotificationList: FC<NotificationListProps> = (props) => {
       max
       className={classNames(cls.NotificationList, {}, [className])}
     >
-      {notifications?.map(notification => <NotificationItem key={notification.id} item={notification} />)}
+      {notifications?.map((notification) => (
+        <NotificationItem key={notification.id} item={notification} />
+      ))}
     </VStack>
   );
 };

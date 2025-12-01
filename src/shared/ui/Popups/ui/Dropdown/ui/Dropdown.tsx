@@ -24,7 +24,7 @@ interface DropdownProps {
 
 export const Dropdown = (props: DropdownProps) => {
   const { className, trigger, items, direction = 'bottom left' } = props;
-  const menuClasses = [mapDirectionClass[direction]];
+  const menuClasses = [mapDirectionClass[direction], popupCls.menu];
 
   return (
     <Menu as='div' className={classNames(popupCls.popup, {}, [className])}>
@@ -43,7 +43,12 @@ export const Dropdown = (props: DropdownProps) => {
 
           if (item.href) {
             return (
-              <Menu.Item key={index} as={AppLink} to={item.href} disabled={item.disabled}>
+              <Menu.Item
+                key={index}
+                as={AppLink}
+                to={item.href}
+                disabled={item.disabled}
+              >
                 {content}
               </Menu.Item>
             );
@@ -54,7 +59,6 @@ export const Dropdown = (props: DropdownProps) => {
               {content}
             </Menu.Item>
           );
-
         })}
       </Menu.Items>
     </Menu>

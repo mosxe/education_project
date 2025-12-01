@@ -12,7 +12,7 @@ import {
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { Text } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 
 interface ArticleInfiniteListProps {
@@ -34,16 +34,18 @@ export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = (props) => {
   });
 
   if (isError) {
-    return <Text text={t('Ошибка при загрузке статей')} align='center' theme={TextTheme.ERROR} />;
+    return (
+      <Text
+        text={t('Ошибка при загрузке статей')}
+        align='center'
+        variant='error'
+      />
+    );
   }
 
   return (
     <div className={classNames('', {}, [className])}>
-      <ArticleList
-        isLoading={isLoading}
-        view={view}
-        articles={articles}
-      />
+      <ArticleList isLoading={isLoading} view={view} articles={articles} />
     </div>
   );
 };

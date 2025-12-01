@@ -30,7 +30,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
     return (
       <>
         <Button variant='clear' onClick={onOpenDrawer}>
-          <Icon Svg={NotificationIcon} />
+          <Icon Svg={NotificationIcon} width={40} height={40} />
         </Button>
         <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
           <NotificationList
@@ -49,7 +49,13 @@ export const NotificationButton = (props: NotificationButtonProps) => {
       direction='bottom left'
       trigger={
         <Button variant='clear'>
-          <Icon Svg={NotificationIcon} />
+          <Icon
+            Svg={NotificationIcon}
+            clickable
+            onClick={onOpenDrawer}
+            width={40}
+            height={40}
+          />
         </Button>
       }
     >

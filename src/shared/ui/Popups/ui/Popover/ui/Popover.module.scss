@@ -1,9 +1,9 @@
 .panel {
   display: flex;
   flex-direction: column;
-  background: var(--card-bg);
+  background: var(--dark-bg-redesigned);
   position: absolute;
   z-index: 10000;
-  border-radius: 8px;
+  border-radius: 18px;
   padding: 12px;
 }

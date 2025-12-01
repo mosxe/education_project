@@ -6,12 +6,10 @@ import { Text } from 'shared/ui/Text';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader';
 import { Profile } from '../../model/types/profile';
-import { TextTheme } from 'shared/ui/Text/ui/Text';
 import { Avatar } from 'shared/ui/Avatar';
 import { CurrencySelect, Currency } from 'entities/Currency';
 import { CountrySelect, Country } from 'entities/Country';
 import { HStack, VStack } from 'shared/ui/Stack';
-
 
 interface ProfileCardProps {
   className?: string;
@@ -47,32 +45,42 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
   } = props;
   const { t } = useTranslation('profile');
 
-
-
   const mods: Mods = {
     [cls.editing]: !readonly
   };
 
   if (isLoading) {
-    return <HStack max justify="center">
-      <Loader />
-    </HStack>;
+    return (
+      <HStack max justify='center'>
+        <Loader />
+      </HStack>
+    );
   }
 
   if (error) {
-    return <HStack max justify="center">
-      <Text
-        title={t('Произошла ошибка')}
-        text={t('Попробуй обновить страницу')}
-        theme={TextTheme.ERROR}
-        align='center'
-      />
-    </HStack>;
+    return (
+      <HStack max justify='center'>
+        <Text
+          title={t('Произошла ошибка')}
+          text={t('Попробуй обновить страницу')}
+          variant='error'
+          align='center'
+        />
+      </HStack>
+    );
   }
 
   return (
-    <VStack gap="16" max className={classNames(cls.ProfileCard, mods, [className])}>
-      {data?.avatar && <HStack justify='center' max><Avatar src={data?.avatar} alt='Аватар' size={150} /></HStack>}
+    <VStack
+      gap='16'
+      max
+      className={classNames(cls.ProfileCard, mods, [className])}
+    >
+      {data?.avatar && (
+        <HStack justify='center' max>
+          <Avatar src={data?.avatar} alt='Аватар' size={150} />
+        </HStack>
+      )}
       <Input
         value={data?.first}
         placeholder={t('Ваше имя')}

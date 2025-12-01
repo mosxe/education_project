@@ -26,9 +26,18 @@ interface ListBoxProps {
 }
 
 export const ListBox = (props: ListBoxProps) => {
-  const { items, value, defaultValue, className, onChange, readonly, direction = 'bottom left', label } = props;
+  const {
+    items,
+    value,
+    defaultValue,
+    className,
+    onChange,
+    readonly,
+    direction = 'bottom left',
+    label
+  } = props;
 
-  const optionsClasses = [mapDirectionClass[direction]];
+  const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
   return (
     <VStack gap='4'>
@@ -41,11 +50,11 @@ export const ListBox = (props: ListBoxProps) => {
         disabled={readonly}
       >
         <HListBox.Button className={popupCls.trigger} as='div'>
-          <Button disabled={readonly}>
-            {value ?? defaultValue}
-          </Button>
+          <Button disabled={readonly}>{value ?? defaultValue}</Button>
         </HListBox.Button>
-        <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
+        <HListBox.Options
+          className={classNames(cls.options, {}, optionsClasses)}
+        >
           {items?.map((item) => (
             <HListBox.Option
               key={item.value}
@@ -55,7 +64,11 @@ export const ListBox = (props: ListBoxProps) => {
             >
               {({ active, selected }) => (
                 <li
-                  className={classNames(cls.item, { [popupCls.active]: active, [popupCls.selected]: selected, [popupCls.disabled]: item.disabled })}
+                  className={classNames(cls.item, {
+                    [popupCls.active]: active,
+                    [popupCls.selected]: selected,
+                    [popupCls.disabled]: item.disabled
+                  })}
                 >
                   {item.value}
                 </li>

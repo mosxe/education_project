@@ -1,74 +1,77 @@
-import storybook from "eslint-plugin-storybook";
+import storybook from 'eslint-plugin-storybook';
 import reactHooks from 'eslint-plugin-react-hooks';
-import js from "@eslint/js";
-import reactPlugin from "eslint-plugin-react";
-import globals from "globals";
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
+import js from '@eslint/js';
+import reactPlugin from 'eslint-plugin-react';
+import globals from 'globals';
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
 import i18next from 'eslint-plugin-i18next';
-import { fixupPluginRules } from "@eslint/compat";
-import unusedImports from "eslint-plugin-unused-imports";
+import { fixupPluginRules } from '@eslint/compat';
+import unusedImports from 'eslint-plugin-unused-imports';
 
-export default [js.configs.recommended, i18next.configs['flat/recommended']
-  , {
-  files: ["src/**/*.{js,jsx,ts,tsx}"],
-  languageOptions: {
-    parser: tsParser,
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true
+export default [
+  js.configs.recommended,
+  i18next.configs['flat/recommended'],
+  {
+    files: ['src/**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: './tsconfig.json'
       },
-      ecmaVersion: "latest",
-      sourceType: "module",
-      project: "./tsconfig.json"
-    },
-    globals: {
-      ...globals.browser,
-      ...globals.node,
-      ...globals.jest,
-      __IS_DEV__: "readonly",
-      __API__: "readonly",
-      __PROJECT__: "readonly"
-    }
-  },
-  plugins: {
-    react: reactPlugin,
-    "@typescript-eslint": tsPlugin,
-    'react-hooks': fixupPluginRules(reactHooks),
-    "unused-imports": unusedImports
-  },
-  rules: {
-    ...reactPlugin.configs.recommended.rules,
-    ...tsPlugin.configs.recommended.rules,
-    "unused-imports/no-unused-imports": "error",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_",
-        "destructuredArrayIgnorePattern": "^_",
-        "ignoreRestSiblings": true
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
+        __IS_DEV__: 'readonly',
+        __API__: 'readonly',
+        __PROJECT__: 'readonly'
       }
-    ],
-    "indent": ["error", 2, { "SwitchCase": 1 }],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "no-trailing-spaces": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "react/react-in-jsx-scope": "off",
-    "react/display-name": "off",
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
-    'no-undef': 'off',
-    "@typescript-eslint/no-explicit-any": "off"
-
-  },
-  settings: {
-    react: {
-      version: "detect"
+    },
+    plugins: {
+      react: reactPlugin,
+      '@typescript-eslint': tsPlugin,
+      'react-hooks': fixupPluginRules(reactHooks),
+      'unused-imports': unusedImports
+    },
+    rules: {
+      ...reactPlugin.configs.recommended.rules,
+      ...tsPlugin.configs.recommended.rules,
+      'unused-imports/no-unused-imports': 'error',
+      '@typescript-eslint/ban-ts-comment': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          ignoreRestSiblings: true
+        }
+      ],
+      indent: ['warn', 2, { SwitchCase: 1 }],
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
+      'no-trailing-spaces': 'error',
+      'react/jsx-uses-react': 'error',
+      'react/jsx-uses-vars': 'error',
+      'react/react-in-jsx-scope': 'off',
+      'react/display-name': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'error',
+      'no-undef': 'off',
+      '@typescript-eslint/no-explicit-any': 'off'
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
     }
-  }
-}, ...storybook.configs["flat/recommended"]];
+  },
+  ...storybook.configs['flat/recommended']
+];
