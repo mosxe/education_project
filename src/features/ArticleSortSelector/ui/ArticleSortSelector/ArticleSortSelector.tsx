@@ -1,11 +1,12 @@
 import { FC, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { SelectOption } from 'shared/ui/Select/ui/Select';
 import { ArticleSortField } from 'entities/Article';
 import { SortOrder } from 'shared/types/sort';
-import { HStack } from 'shared/ui/Stack';
+import { VStack } from 'shared/ui/Stack';
+import { ListBox } from 'shared/ui/Popups';
+import { Text } from 'shared/ui/Text';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -28,8 +29,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
       {
         value: 'desc',
         content: t('убыванию')
-      },
-
+      }
     ];
   }, [t]);
 
@@ -47,22 +47,14 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
         value: ArticleSortField.VIEWS,
         content: t('просмотрам')
       }
-
     ];
   }, [t]);
 
   return (
-    <HStack max gap='16' className={classNames('', {}, [className])}>
-      <Select
-        label={t('Сортировать')}
-        options={sortFieldOptions}
-        value={sort}
-        onChange={onChangeSort} />
-      <Select
-        label={t('по')}
-        options={orderOptions}
-        value={order}
-        onChange={onChangeOrder} />
-    </HStack>
+    <VStack gap='8' className={classNames('', {}, [className])}>
+      <Text text={t('Сортировать по:')} />
+      <ListBox items={sortFieldOptions} value={sort} onChange={onChangeSort} />
+      <ListBox items={orderOptions} value={order} onChange={onChangeOrder} />
+    </VStack>
   );
 };

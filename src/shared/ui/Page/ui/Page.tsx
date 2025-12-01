@@ -23,10 +23,12 @@ export const Page = memo((props: PageProps) => {
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
-  const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, pathname));
+  const scrollPosition = useSelector((state: StateSchema) =>
+    getScrollByPath(state, pathname)
+  );
 
   useInfiniteScroll({
-    wrapperRef,
+    wrapperRef: undefined,
     triggerRef,
     callback: onScrollEnd
   });
@@ -36,10 +38,12 @@ export const Page = memo((props: PageProps) => {
   });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(scrollSaveActions.setScrollPosition({
-      path: pathname,
-      position: e.currentTarget.scrollTop
-    }));
+    dispatch(
+      scrollSaveActions.setScrollPosition({
+        path: pathname,
+        position: e.currentTarget.scrollTop
+      })
+    );
   }, 500);
 
   return (
@@ -50,7 +54,9 @@ export const Page = memo((props: PageProps) => {
       data-testid={props['data-testid'] ?? 'Page'}
     >
       {children}
-      {onScrollEnd ? <div ref={triggerRef} className={cls.trigger}></div> : null}
+      {onScrollEnd ? (
+        <div ref={triggerRef} className={cls.trigger}></div>
+      ) : null}
     </section>
   );
 });

@@ -15,29 +15,34 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
 
   const { t } = useTranslation();
 
+  const typeTabs = useMemo<TabItem[]>(
+    () => [
+      {
+        value: ArticleType.ALL,
+        content: t('Все статьи')
+      },
+      {
+        value: ArticleType.IT,
+        content: t('Айти')
+      },
+      {
+        value: ArticleType.ECONOMICS,
+        content: t('Экономика')
+      },
+      {
+        value: ArticleType.SCIENCE,
+        content: t('Наука')
+      }
+    ],
+    [t]
+  );
 
-  const typeTabs = useMemo<TabItem[]>(() => [
-    {
-      value: ArticleType.ALL,
-      content: t('Все статьи')
+  const onTabClick = useCallback(
+    (tab: TabItem) => {
+      onChangeType(tab.value as ArticleType);
     },
-    {
-      value: ArticleType.IT,
-      content: t('Айти')
-    },
-    {
-      value: ArticleType.ECONOMICS,
-      content: t('Экономика')
-    },
-    {
-      value: ArticleType.SCIENCE,
-      content: t('Наука')
-    }
-  ], [t]);
-
-  const onTabClick = useCallback((tab: TabItem) => {
-    onChangeType(tab.value as ArticleType);
-  }, [onChangeType]);
+    [onChangeType]
+  );
 
   return (
     <Tabs
@@ -45,6 +50,7 @@ export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
       tabs={typeTabs}
       value={value}
       onTabClick={onTabClick}
-    ></Tabs>
+      direction='column'
+    />
   );
 };
