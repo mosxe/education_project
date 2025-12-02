@@ -14,13 +14,17 @@
     color: var(--text-redesigned);
     width: 100%;
 
+    &:read-only {
+      cursor: default;
+    }
+
     &::placeholder {
       color: var(--hint-redesigned);
     }
   }
 }
 
-.Input:has(input:focus) {
+.Input:has(input:focus:not(input:read-only)) {
   border: 2px solid var(--accent-redesigned);
 
   & svg {
@@ -43,5 +47,9 @@
 }
 
 .withAddonRight {
+  padding-right: 8px;
+}
+
+.Label {
   padding-right: 8px;
 }

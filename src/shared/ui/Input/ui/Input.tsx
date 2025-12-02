@@ -7,6 +7,8 @@ import React, {
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
+import { Text } from 'shared/ui/Text';
+import { HStack } from 'shared/ui/Stack';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -55,18 +57,21 @@ export const Input = memo((props: InputProps) => {
   }, [autoFocus]);
 
   return (
-    <div className={cls.Input}>
-      {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
-      <input
-        ref={ref}
-        className={classNames('', mods, [className])}
-        value={value}
-        onChange={onChangeHandler}
-        type={type}
-        readOnly={readOnly}
-        {...otherProps}
-      />
-      {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
-    </div>
+    <HStack max gap='8'>
+      {label && <Text text={label} className={cls.Label} />}
+      <div className={cls.Input}>
+        {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
+        <input
+          ref={ref}
+          className={classNames('', mods, [className])}
+          value={value}
+          onChange={onChangeHandler}
+          type={type}
+          readOnly={readOnly}
+          {...otherProps}
+        />
+        {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
+      </div>
+    </HStack>
   );
 });

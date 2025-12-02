@@ -1,7 +1,5 @@
 .ProfileCard {
-  padding: 20px;
-  border: 2px solid var(--inverted-bg-color);
-  border-radius: 8px;
+  width: 100%;
 }
 
 .wrapper {
@@ -10,4 +8,8 @@
 
 .editing {
   border: 2px solid var(--inverted-primary-color);
+}
+
+.avatarWrapper {
+  margin-bottom: 32px;
 }
