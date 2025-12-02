@@ -1,14 +1,25 @@
-import React, { InputHTMLAttributes, memo, useRef, useEffect } from 'react';
+import React, {
+  InputHTMLAttributes,
+  memo,
+  useRef,
+  useEffect,
+  ReactNode
+} from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange'
+>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
   label?: string;
   value?: string | number;
   onChange?: (value: string) => void;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -20,6 +31,8 @@ export const Input = memo((props: InputProps) => {
     label,
     autoFocus,
     readOnly,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
 
@@ -30,7 +43,9 @@ export const Input = memo((props: InputProps) => {
   };
 
   const mods: Mods = {
-    [cls.readonly]: readOnly
+    [cls.readonly]: readOnly,
+    [cls.withAddonLeft]: Boolean(addonLeft),
+    [cls.withAddonRight]: Boolean(addonRight)
   };
 
   useEffect(() => {
@@ -41,7 +56,7 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div className={cls.Input}>
-      {label && <span>{label}</span>}
+      {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
       <input
         ref={ref}
         className={classNames('', mods, [className])}
@@ -51,6 +66,7 @@ export const Input = memo((props: InputProps) => {
         readOnly={readOnly}
         {...otherProps}
       />
+      {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </div>
   );
 });

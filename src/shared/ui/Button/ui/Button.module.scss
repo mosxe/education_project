@@ -1,12 +1,20 @@
 .Button {
   cursor: pointer;
   color: var(--text-redesigned);
-  padding: 6px 15px;
+  padding: 4px 15px;
   border-radius: 8px;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  font: inherit !important;
 
   &:hover {
     color: var(--accent-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--accent-redesigned);
+    }
   }
 
   &:disabled {
@@ -34,7 +42,6 @@
   border: none;
   outline: none;
   border-radius: 34px;
-  padding: 8px 16px;
 }
 
 .square {
@@ -77,4 +84,9 @@
 
 .fullWidth {
   width: 100%;
+}
+
+.addonLeft,
+.addonRight {
+  display: flex;
 }

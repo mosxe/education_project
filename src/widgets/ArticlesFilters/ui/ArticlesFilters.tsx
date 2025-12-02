@@ -9,6 +9,8 @@ import { VStack } from 'shared/ui/Stack';
 import { Input } from 'shared/ui/Input';
 import { ArticleSortSelector } from 'features/ArticleSortSelector';
 import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
+import SearchIcon from 'shared/assets/icons/search.svg';
+import { Icon } from 'shared/ui/Icon';
 
 interface ArticlesFiltersProps {
   className?: string;
@@ -43,6 +45,7 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = (props) => {
     >
       <VStack gap='32'>
         <Input
+          addonLeft={<Icon Svg={SearchIcon} />}
           value={search}
           onChange={onChangeSearch}
           placeholder={t('Поиск')}
