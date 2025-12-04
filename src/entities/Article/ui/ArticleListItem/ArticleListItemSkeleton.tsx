@@ -4,27 +4,41 @@ import cls from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/consts/consts';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { Card } from 'shared/ui/Card';
-import { VStack } from 'shared/ui/Stack';
+import { VStack, HStack } from 'shared/ui/Stack';
 
 interface ArticleListItemSkeletonProps {
   className?: string;
   view: ArticleView;
 }
 
-export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
+export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
+  props
+) => {
   const { className, view } = props;
   if (view === ArticleView.BIG) {
     return (
       <Card>
-        <VStack max gap='8' className={classNames('', {}, [className, cls[view]])}>
-          <Skeleton width={30} height={30} border='50%' />
-          <Skeleton width={150} height={16} className={cls.username} />
-          <Skeleton width={150} height={16} className={cls.date} />
-          <Skeleton width={250} height={24} className={cls.title} />
-          <Skeleton height={200} className={cls.img} />
-          <div className={cls.footer}>
-            <Skeleton width={200} height={36} />
-          </div>
+        <VStack max gap='16' className={classNames(cls[view], {}, [className])}>
+          <HStack gap='8'>
+            <Skeleton width={32} height={32} border='50%' />
+            <Skeleton width={150} height={16} />
+            <Skeleton width={150} height={16} />
+          </HStack>
+          <Skeleton width={250} height={24} />
+          <Skeleton width={250} height={16} />
+          <Skeleton height={250} width='100%' />
+          <Skeleton width='100%' height={24} />
+          <Skeleton width='100%' height={24} />
+          <HStack
+            max
+            gap='8'
+            align='center'
+            justify='between'
+            className={cls.footer}
+          >
+            <Skeleton width={100} height={24} />
+            <Skeleton width={100} height={24} />
+          </HStack>
         </VStack>
       </Card>
     );
@@ -42,7 +56,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props)
         <div className={cls.infoWrapper}>
           <Skeleton width={130} height={16} />
         </div>
-      </Card >
-    </VStack >
+      </Card>
+    </VStack>
   );
 };

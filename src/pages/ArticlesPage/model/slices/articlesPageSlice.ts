@@ -4,7 +4,12 @@ import {
   PayloadAction
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import {
+  Article,
+  ArticleSortField,
+  ArticleType,
+  ArticleView
+} from 'entities/Article';
 import { articlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
@@ -14,7 +19,9 @@ const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article: Article) => article.id
 });
 
-export const getArticles = articlesAdapter.getSelectors<StateSchema>(state => state.articlesPage || articlesAdapter.getInitialState());
+export const getArticles = articlesAdapter.getSelectors<StateSchema>(
+  (state) => state.articlesPage || articlesAdapter.getInitialState()
+);
 
 const articlesPageSlice = createSlice({
   name: 'articlesPageSlice',
@@ -54,7 +61,11 @@ const articlesPageSlice = createSlice({
       state.type = action.payload;
     },
     initState: (state) => {
-      const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+      console.log('initState');
+      const view = localStorage.getItem(
+        ARTICLES_VIEW_LOCALSTORAGE_KEY
+      ) as ArticleView;
+      console.log(view);
       state.view = view;
       state.limit = view === ArticleView.BIG ? 4 : 9;
       state._inited = true;
@@ -87,4 +98,5 @@ const articlesPageSlice = createSlice({
   }
 });
 
-export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } =
+  articlesPageSlice;

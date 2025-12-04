@@ -9,7 +9,6 @@ import { Card } from 'shared/ui/Card';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from 'shared/const/router';
 import { AppLink } from 'shared/ui/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
@@ -30,10 +29,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
-    <>
-      <Text text={String(article.views)} className={cls.views} />
+    <HStack gap='8'>
       <Icon Svg={EyeIcon} />
-    </>
+      <Text text={String(article.views)} />
+    </HStack>
   );
 
   if (view === ArticleView.BIG) {
@@ -42,19 +41,15 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     ) as ArticleTextBlock;
 
     return (
-      <Card data-testid='ArticleListItem'>
-        <VStack
-          max
-          gap='8'
-          className={classNames('', {}, [className, cls[view]])}
-        >
+      <Card data-testid='ArticleListItem' padding='24'>
+        <VStack max gap='16' className={classNames(cls[view], {}, [className])}>
           <HStack gap='8'>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} />
+            <Avatar size={32} src={article.user.avatar} />
+            <Text text={article.user.username} bold />
+            <Text text={article.createdAt} />
           </HStack>
-          <Text text={article.createdAt} className={cls.date} />
-          <Text title={article.title} className={cls.title} />
-          {types}
+          <Text title={article.title} className={cls.title} bold />
+          <Text title={article.subtitle} size='s' />
           <AppImage
             src={article.img}
             className={cls.img}
@@ -62,12 +57,18 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             fallback={<Skeleton width='100%' height={250} />}
           />
           {textBlock && (
-            <ArticleTextBlockComponent
-              block={textBlock}
+            <Text
               className={cls.textBlock}
+              text={textBlock?.paragraphs.slice(0, 2).join(' ')}
             />
           )}
-          <HStack max gap='8' align='center' className={cls.footer}>
+          <HStack
+            max
+            gap='8'
+            align='center'
+            justify='between'
+            className={cls.footer}
+          >
             <AppLink to={getRouteArticleDetails(article.id)}>
               <Button variant='outline'>{t('Читать далее...')}</Button>
             </AppLink>
