@@ -6,15 +6,16 @@
   inset: 0;
   z-index: var(--modal-z-index);
   opacity: 0;
-  color: var(--primary-color);
   pointer-events: none;
-  transition: opacity 0.3s, z-index 0.3s;
+  transition:
+    opacity 0.3s,
+    z-index 0.3s;
 }
 
 .content {
   padding: 20px;
   border-radius: 12px;
-  background-color: var(--bg-color);
+  background-color: var(--light-bg-redesigned);
   max-width: 60%;
   transition: transform 0.3s;
   transform: scale(0);
