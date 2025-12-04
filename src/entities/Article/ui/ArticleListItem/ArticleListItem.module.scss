@@ -17,47 +17,29 @@
 }
 
 .SMALL {
-  width: 230px;
-  cursor: pointer;
-  transition: all 0.2s;
-
-  .imageWrapper {
-    width: 200px;
-    height: 200px;
-    position: relative;
+  .card {
+    width: 240px;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
+    min-height: 140px;
+    max-height: 140px;
   }
 
-  &:hover {
-    opacity: 0.8;
-    transform: scale(1.01);
+  .info {
+    padding: 8px 8px 16px;
+    height: 100%;
   }
 
-  .infoWrapper {
-    margin-top: 8px;
-  }
-
-  .types {
-    width: 115px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .views {
-    margin-left: auto;
-    margin-right: 8px;
-  }
-
-  .title p {
-    margin-top: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .footer {
+    height: 100%;
+    justify-content: flex-end;
   }
 }

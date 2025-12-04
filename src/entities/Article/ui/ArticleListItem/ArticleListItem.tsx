@@ -27,7 +27,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
   const { className, article, view, target = '_self' } = props;
   const { t } = useTranslation();
 
-  const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
     <HStack gap='8'>
       <Icon Svg={EyeIcon} />
@@ -41,7 +40,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     ) as ArticleTextBlock;
 
     return (
-      <Card data-testid='ArticleListItem' padding='24'>
+      <Card data-testid='ArticleListItem' padding='24' border='round'>
         <VStack max gap='16' className={classNames(cls[view], {}, [className])}>
           <HStack gap='8'>
             <Avatar size={32} src={article.user.avatar} />
@@ -84,24 +83,27 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
       data-testid='ArticleListItem'
       target={target}
       to={getRouteArticleDetails(article.id)}
-      className={classNames('', {}, [className, cls[view]])}
+      className={classNames(cls[view], {}, [className])}
     >
-      <Card>
-        <VStack max gap='8'>
-          <HStack max align='center'>
-            <AppImage
-              src={article.img}
-              className={cls.img}
-              alt={article.title}
-              fallback={<Skeleton width={200} height={200} />}
-            />
-            <Text text={article.createdAt} className={cls.date} />
-          </HStack>
-          <HStack max align='center' gap='4'>
-            {types}
-            {views}
-          </HStack>
-          <Text text={article.title} className={cls.title} />
+      <Card className={cls.card} border='round'>
+        <AppImage
+          fallback={<Skeleton width={200} height={200} />}
+          alt={article.title}
+          src={article.img}
+          className={cls.img}
+        />
+        <VStack className={cls.info} gap='4'>
+          <Text title={article.title} className={cls.title} />
+          <VStack gap='4' className={cls.footer} max>
+            <HStack justify='between' max gap='4'>
+              <Text text={article.createdAt} className={cls.date} />
+              {views}
+            </HStack>
+            <HStack gap='4'>
+              <Avatar size={32} src={article.user.avatar} />
+              <Text text={article.user.username} />
+            </HStack>
+          </VStack>
         </VStack>
       </Card>
     </AppLink>

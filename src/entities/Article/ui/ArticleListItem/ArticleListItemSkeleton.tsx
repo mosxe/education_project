@@ -45,17 +45,22 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
   }
 
   return (
-    <VStack className={classNames('', {}, [className, cls[view]])}>
-      <Card>
-        <div className={cls.imageWrapper}>
-          <Skeleton width={200} height={200} />
-        </div>
-        <div className={cls.infoWrapper}>
-          <Skeleton width={130} height={16} />
-        </div>
-        <div className={cls.infoWrapper}>
-          <Skeleton width={130} height={16} />
-        </div>
+    <VStack className={classNames(cls[view], {}, [className])}>
+      <Card className={cls.card} border='round'>
+        <Skeleton width='100%' height={140} />
+        <VStack className={cls.info} gap='4'>
+          <Skeleton width='100%' height={72} />
+          <VStack gap='4' className={cls.footer} max>
+            <HStack justify='between' max gap='4'>
+              <Skeleton width='40%' height={24} />
+              <Skeleton width='40%' height={24} />
+            </HStack>
+            <HStack gap='4'>
+              <Skeleton width={60} height={32} border='100%' />
+              <Skeleton width='100%' height={24} />
+            </HStack>
+          </VStack>
+        </VStack>
       </Card>
     </VStack>
   );

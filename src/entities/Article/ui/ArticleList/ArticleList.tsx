@@ -6,6 +6,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { Text } from 'shared/ui/Text';
 import { ArticleView } from '../../model/consts/consts';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleListProps {
   className?: string;
@@ -50,12 +51,14 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
   }
 
   return (
-    <div
+    <HStack
       data-testid='ArticleList'
+      gap='16'
+      wrap='wrap'
       className={classNames(cls.ArticleList, {}, [className, cls[view]])}
     >
       {articles.length > 0 ? articles.map(renderArticle) : null}
       {isLoading && getSkeletons(view)}
-    </div>
+    </HStack>
   );
 };
