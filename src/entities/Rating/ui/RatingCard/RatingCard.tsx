@@ -73,8 +73,12 @@ export const RatingCard = (props: RatingCardProps) => {
   );
 
   return (
-    <Card className={classNames('', {}, [className])} data-testid='RatingCard'>
-      <VStack align='center' gap='8'>
+    <Card
+      className={classNames('', {}, [className])}
+      data-testid='RatingCard'
+      max
+    >
+      <VStack align='center' gap='8' max>
         <Text title={starsCount > 0 ? t('Спасибо за оценку!') : title} />
         <StartRating
           size={30}

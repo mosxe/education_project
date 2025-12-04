@@ -55,6 +55,7 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
       <HStack
         max
         justify='between'
+        gap='16'
         className={classNames(cls.AddCommentForm, {}, [className])}
         data-testid='AddCommentForm'
       >

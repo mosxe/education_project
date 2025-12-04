@@ -12,6 +12,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant;
   padding?: CardPadding;
   border?: CardBorder;
+  max?: boolean;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -29,6 +30,7 @@ export const Card = memo((props: CardProps) => {
     variant = 'normal',
     padding = '8',
     border = 'normal',
+    max = false,
     ...otherProps
   } = props;
 
@@ -36,7 +38,7 @@ export const Card = memo((props: CardProps) => {
 
   return (
     <div
-      className={classNames(cls.Card, {}, [
+      className={classNames(cls.Card, { [cls.max]: max }, [
         className,
         cls[variant],
         cls[paddingClass],

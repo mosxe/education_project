@@ -17,5 +17,7 @@
   "Пароль": "Password",
   "Профиль": "Profile",
   "Укажите валюту": "Selected wallet",
-  "Копировать": "Copy"
+  "Копировать": "Copy",
+  "{{count}} просмотров_one": "{{count}}  view",
+  "{{count}} просмотров_other": "{{count}}  views"
 }

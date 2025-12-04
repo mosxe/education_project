@@ -1,20 +1,22 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text';
-import cls from './ArticleDetailsPage.module.scss';
 import {
   DynamicModuleLoader,
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { Page } from 'shared/ui/Page';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from 'features/articleRating';
 import { getFeatureFlag } from 'shared/lib/features';
+import { StickyContentLayout } from 'shared/layouts/StickyContentLayout';
+import { VStack } from 'shared/ui/Stack';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
+import { Card } from 'shared/ui/Card';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -39,15 +41,21 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classNames('', {}, [className])}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
-        {isArticleRatingEnabled && (
-          <ArticleRating articleId={id} className={cls.commentTitle} />
-        )}
-        <ArticleRecommendationsList className={cls.commentTitle} />
-        <ArticleDetailsComments id={id} className={cls.commentTitle} />
-      </Page>
+      <StickyContentLayout
+        content={
+          <Page className={classNames('', {}, [className])}>
+            <Card border='round'>
+              <VStack gap='16' max>
+                <DetailsContainer />
+                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                <ArticleRecommendationsList />
+                <ArticleDetailsComments id={id} />
+              </VStack>
+            </Card>
+          </Page>
+        }
+        right={<AdditionalInfoContainer />}
+      />
     </DynamicModuleLoader>
   );
 };
