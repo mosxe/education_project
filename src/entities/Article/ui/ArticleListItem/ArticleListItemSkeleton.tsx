@@ -17,7 +17,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
   const { className, view } = props;
   if (view === ArticleView.BIG) {
     return (
-      <Card>
+      <Card padding='24' border='round' max>
         <VStack max gap='16' className={classNames(cls[view], {}, [className])}>
           <HStack gap='8'>
             <Skeleton width={32} height={32} border='50%' />
@@ -46,18 +46,23 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
 
   return (
     <VStack className={classNames(cls[view], {}, [className])}>
-      <Card className={cls.card} border='round'>
+      <Card className={cls.card} border='round' padding='0'>
         <Skeleton width='100%' height={140} />
         <VStack className={cls.info} gap='4'>
           <Skeleton width='100%' height={72} />
-          <VStack gap='4' className={cls.footer} max>
+          <VStack gap='8' className={cls.footer} max>
             <HStack justify='between' max gap='4'>
               <Skeleton width='40%' height={24} />
               <Skeleton width='40%' height={24} />
             </HStack>
-            <HStack gap='4'>
-              <Skeleton width={60} height={32} border='100%' />
-              <Skeleton width='100%' height={24} />
+            <HStack gap='8'>
+              <Skeleton
+                width={32}
+                height={32}
+                border='50%'
+                className={cls.avatar}
+              />
+              <Skeleton width={60} height={24} />
             </HStack>
           </VStack>
         </VStack>
