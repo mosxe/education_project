@@ -1,9 +1,11 @@
 .Code {
-  border: 1px solid var(--primary-color);
   padding: 20px;
   position: relative;
-  background-color: var(--code-bg);
+  background: var(--light-bg-redesigned);
   overflow: auto;
+  border: 1px solid var(--accent-redesigned);
+  border-radius: 16px;
+  width: 100%;
 }
 
 .copyBtn {

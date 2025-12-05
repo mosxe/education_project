@@ -16,7 +16,6 @@ import { StickyContentLayout } from 'shared/layouts/StickyContentLayout';
 import { VStack } from 'shared/ui/Stack';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
-import { Card } from 'shared/ui/Card';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -44,14 +43,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <StickyContentLayout
         content={
           <Page className={classNames('', {}, [className])}>
-            <Card border='round'>
-              <VStack gap='16' max>
-                <DetailsContainer />
-                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-                <ArticleRecommendationsList />
-                <ArticleDetailsComments id={id} />
-              </VStack>
-            </Card>
+            <VStack gap='16' max>
+              <DetailsContainer />
+              {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+              <ArticleRecommendationsList />
+              <ArticleDetailsComments id={id} />
+            </VStack>
           </Page>
         }
         right={<AdditionalInfoContainer />}

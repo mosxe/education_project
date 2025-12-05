@@ -56,6 +56,7 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
       gap='16'
       wrap='wrap'
       className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+      justify='between'
     >
       {articles.length > 0 ? articles.map(renderArticle) : null}
       {isLoading && getSkeletons(view)}

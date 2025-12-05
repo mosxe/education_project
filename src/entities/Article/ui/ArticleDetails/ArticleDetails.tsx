@@ -16,16 +16,9 @@ import {
 } from '../../model/selectors/articleDetails';
 import { Text } from 'shared/ui/Text';
 import { Skeleton } from 'shared/ui/Skeleton';
-import { Avatar } from 'shared/ui/Avatar';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { Icon } from 'shared/ui/Icon';
-import { ArticleBlock } from '../../model/types/article';
-import { ArticleBlockType } from '../../model/consts/consts';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { VStack } from 'shared/ui/Stack';
+import { renderArticleBlock } from './renderArticleBlock';
+import { AppImage } from 'shared/ui/AppImage';
 
 interface ArticleDetailsProps {
   id: string;
@@ -34,37 +27,6 @@ interface ArticleDetailsProps {
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer
-};
-
-const renderBlock = (block: ArticleBlock) => {
-  switch (block.type) {
-    case ArticleBlockType.CODE:
-      return (
-        <ArticleCodeBlockComponent
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
-    case ArticleBlockType.TEXT:
-      return (
-        <ArticleTextBlockComponent
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
-    case ArticleBlockType.IMAGE:
-      return (
-        <ArticleImageBlockComponent
-          key={block.id}
-          block={block}
-          className={cls.block}
-        />
-      );
-    default:
-      return null;
-  }
 };
 
 export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
@@ -83,16 +45,13 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton
-          className={cls.avatar}
-          width={200}
-          height={200}
-          border='50%'
-        />
-        <Skeleton className={cls.title} width={300} height={32} />
-        <Skeleton className={cls.skeleton} width={600} height={24} />
-        <Skeleton className={cls.skeleton} width='100%' height={200} />
-        <Skeleton className={cls.skeleton} width='100%' height={200} />
+        <Skeleton width='50%' height={32} />
+        <Skeleton width='75%' height={32} />
+        <Skeleton width='100%' height={420} />
+        <Skeleton width={300} height={32} />
+        <Skeleton width={600} height={24} />
+        <Skeleton width='100%' height={200} />
+        <Skeleton width='100%' height={200} />
       </>
     );
   } else if (error) {
@@ -100,31 +59,16 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   } else {
     content = (
       <>
-        <HStack
-          justify='center'
-          align='center'
-          max
-          className={cls.avatarWrapper}
-        >
-          <Avatar src={article?.img} size={200} className={cls.avatar} />
-        </HStack>
-        <VStack gap='4' max data-testid='ArticleDetails.Info'>
-          <Text
-            title={article?.title}
-            text={article?.subtitle}
-            className={cls.title}
-            size='l'
-          />
-          <HStack gap='8'>
-            <Icon Svg={EyeIcon} />
-            <Text text={String(article?.views)} />
-          </HStack>
-          <HStack gap='8'>
-            <Icon Svg={CalendarIcon} />
-            <Text text={article?.createdAt} />
-          </HStack>
-        </VStack>
-        {article?.blocks.map(renderBlock)}
+        <Text title={article?.title} bold size='l' />
+        <Text title={article?.subtitle} />
+        <AppImage
+          src={article?.img}
+          fallback={<Skeleton width='100%' height={420} border='16px' />}
+          height={420}
+          alt='Картинка'
+          className={cls.img}
+        />
+        {article?.blocks.map(renderArticleBlock)}
       </>
     );
   }
