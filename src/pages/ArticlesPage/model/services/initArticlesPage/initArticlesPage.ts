@@ -13,10 +13,8 @@ export const initArticlesPage = createAsyncThunk<
 >('articlesPage/initArticlesPage', async (searchParams, thunkApi) => {
   const { getState, dispatch } = thunkApi;
   const inited = getArtcilesPageInited(getState());
-  console.log('inited: ' + inited);
 
   if (!inited) {
-    console.log('zashli');
     const orderFromUrl = searchParams.get('order') as SortOrder;
     const sortFromUrl = searchParams.get('sort') as ArticleSortField;
     const searchFromUrl = searchParams.get('search');
@@ -37,7 +35,6 @@ export const initArticlesPage = createAsyncThunk<
     if (typeFromUrl) {
       dispatch(articlesPageActions.setType(typeFromUrl));
     }
-    console.log('DISPATCH');
     dispatch(articlesPageActions.initState());
     dispatch(fetchArticleList({}));
   }

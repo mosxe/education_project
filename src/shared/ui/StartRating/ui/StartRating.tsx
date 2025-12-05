@@ -15,7 +15,8 @@ const stars = [1, 2, 3, 4, 5];
 
 export const StartRating = (props: StartRatingProps) => {
   const { className, size = 30, selectedStars = 0, onSelect } = props;
-  const [currentStarsCount, setCurrentStarsCount] = useState<number>(selectedStars);
+  const [currentStarsCount, setCurrentStarsCount] =
+    useState<number>(selectedStars);
   const [isSelected, setIsSelected] = useState<boolean>(Boolean(selectedStars));
 
   const onHover = (starsCount: number) => () => {
@@ -40,14 +41,19 @@ export const StartRating = (props: StartRatingProps) => {
 
   return (
     <div className={classNames(cls.StartRating, {}, [className])}>
-      {stars.map(starNumber => (
+      {stars.map((starNumber) => (
         <Icon
+          clickable
           key={starNumber}
           Svg={StartIcon}
-          className={classNames(cls.startIcon, {
-            [cls.hovered]: currentStarsCount >= starNumber,
-            [cls.selected]: isSelected
-          }, [])}
+          className={classNames(
+            cls.startIcon,
+            {
+              [cls.hovered]: currentStarsCount >= starNumber,
+              [cls.selected]: isSelected
+            },
+            []
+          )}
           width={size}
           height={size}
           onMouseLeave={onLeave}

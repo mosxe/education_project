@@ -1547,6 +1547,18 @@
       "userId": "1",
       "text": "222",
       "id": "ONjOXS2"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "123",
+      "id": "JG9A2w8"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "333333",
+      "id": "BgBllq4"
     }
   ],
   "users": [
@@ -1694,6 +1706,12 @@
       "rate": 1,
       "feedback": "",
       "id": "hU9_D5Q"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "rate": 3,
+      "id": "a8an7yc"
     }
   ]
 }

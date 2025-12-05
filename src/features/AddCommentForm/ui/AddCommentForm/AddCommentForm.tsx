@@ -17,6 +17,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { addCommentFormReducer } from '../../model/slices/addCommentForm';
 import { HStack } from 'shared/ui/Stack';
+import { Card } from 'shared/ui/Card';
 
 interface AddCommentFormProps {
   className?: string;
@@ -52,28 +53,30 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack
-        max
-        justify='between'
-        gap='16'
-        className={classNames(cls.AddCommentForm, {}, [className])}
-        data-testid='AddCommentForm'
-      >
-        <Input
-          placeholder={t('Введите текст комментария')}
-          value={text}
-          onChange={onCommentTextChange}
-          className={cls.input}
-          data-testid='AddCommentForm.Input'
-        />
-        <Button
-          variant='outline'
-          onClick={onSendHandler}
-          data-testid='AddCommentForm.Button'
+      <Card max padding='24'>
+        <HStack
+          max
+          justify='between'
+          gap='16'
+          className={classNames('', {}, [className])}
+          data-testid='AddCommentForm'
         >
-          {t('Отправить')}
-        </Button>
-      </HStack>
+          <Input
+            placeholder={t('Введите текст комментария')}
+            value={text}
+            onChange={onCommentTextChange}
+            className={cls.input}
+            data-testid='AddCommentForm.Input'
+          />
+          <Button
+            variant='outline'
+            onClick={onSendHandler}
+            data-testid='AddCommentForm.Button'
+          >
+            {t('Отправить')}
+          </Button>
+        </HStack>
+      </Card>
     </DynamicModuleLoader>
   );
 };

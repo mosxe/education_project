@@ -38,7 +38,7 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = (
   );
 
   return (
-    <VStack max gap='16'>
+    <VStack max gap='16' className={className}>
       <Text size='l' title={t('Комментарии')} />
       <AddCommentForm onSendComment={onSendComment} />
       <CommentList comments={comments} isLoading={commentsIsLoading} />
