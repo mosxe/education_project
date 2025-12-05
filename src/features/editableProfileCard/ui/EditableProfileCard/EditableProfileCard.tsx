@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './EditableProfileCard.module.scss';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
@@ -115,12 +113,8 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <VStack
-        gap='8'
-        max
-        className={classNames(cls.EditableProfileCard, {}, [className])}
-      >
-        <EditableProfileCardHeader className={cls.profileCardHeader} />
+      <VStack gap='24' max>
+        <EditableProfileCardHeader />
         {validateErrors?.length &&
           validateErrors.map((error) => (
             <Text

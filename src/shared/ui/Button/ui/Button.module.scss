@@ -9,7 +9,7 @@
   font: inherit !important;
 
   &:hover {
-    color: var(--accent-redesigned);
+    opacity: 0.8;
 
     .addonLeft svg,
     .addonRight svg {
@@ -32,20 +32,42 @@
 }
 
 .outline {
-  border: 2px solid var(--icon-redesigned);
   background: none;
   outline: none;
 
+  &.normal {
+    border: 2px solid var(--icon-redesigned);
+  }
+
+  &.success {
+    border: 2px solid var(--save-redesigned);
+  }
+
+  &.error {
+    border: 2px solid var(--cancel-redesigned);
+  }
+
   &:hover {
-    border-color: var(--accent-redesigned);
+    opacity: 0.8;
   }
 }
 
 .filled {
-  background: var(--light-bg-redesigned);
   border: none;
   outline: none;
   border-radius: 34px;
+
+  &.normal {
+    background: var(--light-bg-redesigned);
+  }
+
+  &.success {
+    background: var(--save-redesigned);
+  }
+
+  &.error {
+    background: var(--cancel-redesigned);
+  }
 }
 
 .square {

@@ -11,6 +11,7 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
+import { Card } from 'shared/ui/Card';
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -40,35 +41,39 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (
   }, [dispatch]);
 
   return (
-    <HStack className={classNames('', {}, [className])} justify='between' max>
-      <Text title={t('Профиль')} />
-      {canEdit &&
-        (readonly ? (
-          <Button
-            variant='outline'
-            onClick={onEdit}
-            data-testid='EditableProfileCardHeader.EditButton'
-          >
-            {t('Редактировать')}
-          </Button>
-        ) : (
-          <HStack gap='16'>
+    <Card padding='24' border='normal' max>
+      <HStack className={classNames('', {}, [className])} justify='between' max>
+        <Text title={t('Профиль')} />
+        {canEdit &&
+          (readonly ? (
             <Button
               variant='outline'
-              onClick={onSave}
-              data-testid='EditableProfileCardHeader.SaveButton'
+              onClick={onEdit}
+              data-testid='EditableProfileCardHeader.EditButton'
             >
-              {t('Сохранить')}
+              {t('Редактировать')}
             </Button>
-            <Button
-              variant='outline'
-              onClick={onCancelEdit}
-              data-testid='EditableProfileCardHeader.CancelButton'
-            >
-              {t('Отменить')}
-            </Button>
-          </HStack>
-        ))}
-    </HStack>
+          ) : (
+            <HStack gap='16'>
+              <Button
+                variant='outline'
+                onClick={onSave}
+                data-testid='EditableProfileCardHeader.SaveButton'
+                color='success'
+              >
+                {t('Сохранить')}
+              </Button>
+              <Button
+                variant='outline'
+                onClick={onCancelEdit}
+                data-testid='EditableProfileCardHeader.CancelButton'
+                color='error'
+              >
+                {t('Отменить')}
+              </Button>
+            </HStack>
+          ))}
+      </HStack>
+    </Card>
   );
 };
