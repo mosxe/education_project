@@ -15,37 +15,24 @@ export default {
 
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
-  testEnvironment: "jsdom",
-  coveragePathIgnorePatterns: [
-    "\\\\node_modules\\\\"
-  ],
-  moduleDirectories: [
-    "node_modules"
-  ],
-  moduleFileExtensions: [
-    "js",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
-  ],
+  testEnvironment: 'jsdom',
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+  moduleDirectories: ['node_modules'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
   rootDir: '../../',
   testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-  modulePaths: [
-    "<rootDir>src"
-  ],
+  modulePaths: ['<rootDir>src'],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': '<rootDir>/config/jest/jestEmptyComponent.tsx',
-    "^axios$": "axios/dist/node/axios.cjs"
+    '^axios$': 'axios/dist/node/axios.cjs'
   },
   globals: {
     __IS_DEV__: true,
     __API__: '',
     __PROJECT__: 'jest'
-  },
+  }
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -56,7 +43,6 @@ export default {
   // coverageDirectory: undefined,
 
   // An array of regexp pattern strings used to skip coverage collection
-
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -89,15 +75,12 @@ export default {
 
   // A set of global variables that need to be available in all test environments
 
-
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
 
-
   // An array of file extensions your modules use
-
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -137,7 +120,6 @@ export default {
 
   // A list of paths to directories that Jest should use to search for files in
 
-
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
 
@@ -155,7 +137,6 @@ export default {
 
   // The test environment that will be used for testing
 
-
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
 
@@ -163,7 +144,6 @@ export default {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [

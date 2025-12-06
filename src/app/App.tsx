@@ -7,19 +7,25 @@ import { useSelector } from 'react-redux';
 import { getUserInited } from 'entities/User';
 import { initAuthData } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { PageLoader } from 'widgets/PageLoader';
+import { AppLoaderLayout } from 'shared/layouts/AppLoaderLayout';
 import { MainLayout } from 'shared/layouts/MainLayout';
+import { useAppToolbar } from 'app/lib/useAppToolbar';
 
 const App = () => {
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
-
+  const toolbar = useAppToolbar();
+  console.log(toolbar);
   useEffect(() => {
     dispatch(initAuthData());
   }, [dispatch]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <div id='app' className={classNames('app', {}, [])}>
+        <AppLoaderLayout />
+      </div>
+    );
   }
 
   return (
@@ -29,6 +35,7 @@ const App = () => {
           header={<Navbar />}
           content={<AppRouter />}
           sidebar={<SideBar />}
+          toolbar={toolbar}
         />
       </Suspense>
     </div>
